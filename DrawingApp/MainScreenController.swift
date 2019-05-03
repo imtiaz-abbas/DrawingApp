@@ -13,7 +13,7 @@ import UIKit
 class MainScreenController: UIViewController {
     var pencilColor = UIColor.black
     var mainImageView = CanvasView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let screenSize = UIScreen.main.bounds
@@ -24,9 +24,8 @@ class MainScreenController: UIViewController {
         mainImageView.backgroundColor = .white
         mainImageView.setup()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         mainImageView.cleanup()
     }
 }
-

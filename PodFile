@@ -1,0 +1,4 @@
+target 'DrawingApp' do
+    use_frameworks!
+    pod 'SwiftLint'
+  end

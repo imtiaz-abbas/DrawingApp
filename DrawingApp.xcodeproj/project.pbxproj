@@ -13,9 +13,13 @@
 		B20E5976227C3A9000D53AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */; };
 		B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */; };
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
+		D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.release.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.release.xcconfig"; sourceTree = "<group>"; };
+		AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.debug.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B20E5968227C3A8F00D53AA7 /* DrawingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B20E5970227C3A8F00D53AA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43739B8295135EF58CF860AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */,
+				464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B19020F338495EE4CB6485D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B20E595F227C3A8F00D53AA7 = {
 			isa = PBXGroup;
 			children = (
 				B20E596A227C3A8F00D53AA7 /* DrawingApp */,
 				B20E5969227C3A8F00D53AA7 /* Products */,
+				43739B8295135EF58CF860AB /* Pods */,
+				B19020F338495EE4CB6485D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,12 +82,12 @@
 			isa = PBXGroup;
 			children = (
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
-				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
-				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
-				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
-				B20E5977227C3A9000D53AA7 /* Info.plist */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
+				B20E5977227C3A9000D53AA7 /* Info.plist */,
+				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
+				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
+				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 			);
 			path = DrawingApp;
 			sourceTree = "<group>";
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B20E597A227C3A9000D53AA7 /* Build configuration list for PBXNativeTarget "DrawingApp" */;
 			buildPhases = (
+				75616F9279196624BB6B7570 /* [CP] Check Pods Manifest.lock */,
 				B20E5964227C3A8F00D53AA7 /* Sources */,
 				B20E5965227C3A8F00D53AA7 /* Frameworks */,
 				B20E5966227C3A8F00D53AA7 /* Resources */,
@@ -133,6 +159,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		75616F9279196624BB6B7570 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrawingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B20E5964227C3A8F00D53AA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -153,6 +204,7 @@
 				B20E5970227C3A8F00D53AA7 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */ = {
@@ -161,6 +213,7 @@
 				B20E5975227C3A9000D53AA7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -284,6 +337,7 @@
 		};
 		B20E597B227C3A9000D53AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +356,7 @@
 		};
 		B20E597C227C3A9000D53AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
