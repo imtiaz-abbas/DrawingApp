@@ -11,18 +11,29 @@ import Stevia
 import UIKit
 class CanvasView: UIView {
     var paths: Array<UIBezierPath> = []
+    var undonePaths: Array<UIBezierPath> = []
     var prevPoint = CGPoint.zero
-//    var resetButton = UIButton(type: UIButton.ButtonType.system)
     func setup() {
-//        self.sv(resetButton)
-//        resetButton.Bottom == 50
-//        resetButton.centerHorizontally()
-//        layoutIfNeeded()
     }
     
     func clearDrawing() {
         paths.removeAll()
+        undonePaths.removeAll()
         setNeedsDisplay()
+    }
+    
+    func undoAction() {
+        if let path = paths.popLast() {
+            undonePaths.append(path)
+            setNeedsDisplay()
+        }
+    }
+    
+    func redoAction() {
+        if let path = undonePaths.popLast() {
+            paths.append(path)
+            setNeedsDisplay()
+        }
     }
 
     func cleanup () {
@@ -41,7 +52,7 @@ class CanvasView: UIView {
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        undonePaths.removeAll()
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
