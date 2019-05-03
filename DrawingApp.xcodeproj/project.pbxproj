@@ -64,9 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				B20E596A227C3A8F00D53AA7 /* DrawingApp */,
-				B20E5969227C3A8F00D53AA7 /* Products */,
-				43739B8295135EF58CF860AB /* Pods */,
 				B19020F338495EE4CB6485D5 /* Frameworks */,
+				43739B8295135EF58CF860AB /* Pods */,
+				B20E5969227C3A8F00D53AA7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
