@@ -48,7 +48,6 @@
 				AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */,
 				464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,11 +82,11 @@
 			children = (
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
+				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
 				B20E5977227C3A9000D53AA7 /* Info.plist */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
-				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 			);
 			path = DrawingApp;
 			sourceTree = "<group>";
@@ -103,6 +102,7 @@
 				B20E5964227C3A8F00D53AA7 /* Sources */,
 				B20E5965227C3A8F00D53AA7 /* Frameworks */,
 				B20E5966227C3A8F00D53AA7 /* Resources */,
+				116EAD7D9C0CA66E40C0FD04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +160,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		116EAD7D9C0CA66E40C0FD04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		75616F9279196624BB6B7570 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

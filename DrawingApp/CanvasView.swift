@@ -7,12 +7,22 @@
 //
 
 import Foundation
+import Stevia
 import UIKit
 class CanvasView: UIView {
     var paths: Array<UIBezierPath> = []
     var prevPoint = CGPoint.zero
+//    var resetButton = UIButton(type: UIButton.ButtonType.system)
     func setup() {
-
+//        self.sv(resetButton)
+//        resetButton.Bottom == 50
+//        resetButton.centerHorizontally()
+//        layoutIfNeeded()
+    }
+    
+    func clearDrawing() {
+        paths.removeAll()
+        setNeedsDisplay()
     }
 
     func cleanup () {

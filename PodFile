@@ -1,4 +1,5 @@
 target 'DrawingApp' do
     use_frameworks!
     pod 'SwiftLint'
+    pod 'SteviaLayout'
   end
