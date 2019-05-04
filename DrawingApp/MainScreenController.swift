@@ -16,6 +16,8 @@ class MainScreenController: UIViewController {
     let undoButton = UIButton(type: UIButton.ButtonType.system)
     let redoButton = UIButton(type: UIButton.ButtonType.system)
     let resetButton = UIButton(type: UIButton.ButtonType.system)
+    let colorSelectorButton = UIButton(type: UIButton.ButtonType.system)
+    let brushSelectorButton = UIButton(type: UIButton.ButtonType.system)
     var mainImageView = CanvasView()
     
     var toolBar = UIView()
@@ -50,19 +52,29 @@ class MainScreenController: UIViewController {
         mainImageView.setup()
         
         //adding subviews to bottomBar
-        bottomBar.sv(undoButton, redoButton, resetButton)
+        bottomBar.sv(colorSelectorButton, brushSelectorButton, undoButton, redoButton, resetButton)
         
-        undoButton.Left == 20
+        
+        colorSelectorButton.Left == 20
+        colorSelectorButton.Bottom == 50
+        colorSelectorButton.text("Color")
+        
+        brushSelectorButton.Left == colorSelectorButton.Right + 20
+        brushSelectorButton.Bottom == 50
+        brushSelectorButton.text("Brush")
+        
+        undoButton.centerHorizontally()
         undoButton.Bottom == 50
         undoButton.text("Undo")
-        
-        redoButton.Bottom == 50
-        redoButton.centerHorizontally()
-        redoButton.text("Redo")
         
         resetButton.Bottom == 50
         resetButton.Right == 20
         resetButton.text("Reset")
+        
+        
+        redoButton.Bottom == 50
+        redoButton.Right == resetButton.Left - 20
+        redoButton.text("Redo")
         
         // adding actions to all the buttons in bottom bar
         undoButton.addTarget(self, action: #selector(undo), for:.touchUpInside)
