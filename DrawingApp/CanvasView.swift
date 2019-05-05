@@ -12,10 +12,13 @@ import UIKit
 class CanvasView: UIView {
     var paths: Array<UIBezierPath> = []
     var pathColors: Array<UIColor> = []
+    
     var undonePathColors: Array<UIColor> = []
     var undonePaths: Array<UIBezierPath> = []
+    
     var strokes: Array<Int> = []
     var undoneStrokes: Array<Int> = []
+    
     var prevPoint = CGPoint.zero
     var brushColor = UIColor.black
     var brushStroke = 2

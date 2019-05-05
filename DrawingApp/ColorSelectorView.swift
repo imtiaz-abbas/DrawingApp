@@ -48,8 +48,10 @@ class ColorSelectorView: UIViewController {
                 colorView.height(20)
                 colorView.width(20)
                 colorView.layer.cornerRadius = 10
+                colorView.layer.borderColor = UIColor.gray.cgColor
+                colorView.layer.borderWidth = 0.5
                 colorView.backgroundColor = pencil.color
-                let left = CGFloat(i) * 20 + 5 * CGFloat(i)
+                let left = CGFloat(i) * 20 + 5 * CGFloat(i + 1)
                 colorView.Left == left
                 colorView.Top == 20
             }
