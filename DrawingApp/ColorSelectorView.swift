@@ -54,15 +54,6 @@ class ColorSelectorView: UIViewController {
             }
             i += 1
         }
-        
-//        dialogView.sv(redColorView)
-//        redColorView.height(20)
-//        redColorView.width(20)
-//        redColorView.layer.cornerRadius = 10
-//        redColorView.backgroundColor = .red
-//        redColorView.Left == 20
-//        redColorView.Top == 20
-        
     }
     
     @objc func dismissDialog(_ sender:UITapGestureRecognizer){

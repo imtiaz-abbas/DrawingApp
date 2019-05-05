@@ -36,12 +36,20 @@ class CanvasView: UIView {
             undonePaths.append(path)
             setNeedsDisplay()
         }
+        if let pathColor = pathColors.popLast() {
+            undonePathColors.append(pathColor)
+            setNeedsLayout()
+        }
     }
     
     func redoAction() {
         if let path = undonePaths.popLast() {
             paths.append(path)
             setNeedsDisplay()
+        }
+        if let pathColor = undonePathColors.popLast() {
+            pathColors.append(pathColor)
+            setNeedsLayout()
         }
     }
 
@@ -63,6 +71,7 @@ class CanvasView: UIView {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         undonePaths.removeAll()
+        undonePathColors.removeAll()
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
