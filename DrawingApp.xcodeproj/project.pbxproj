@@ -13,6 +13,8 @@
 		B20E5976227C3A9000D53AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */; };
 		B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */; };
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
+		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
+		B25A09B7227D98C200E41356 /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorView.swift */; };
 		D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		B20E5977227C3A9000D53AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		B20E5981227C4F5D00D53AA7 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
+		B25A09B6227D98C200E41356 /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +87,12 @@
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
 				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
+				B25A09B6227D98C200E41356 /* ColorSelectorView.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
 				B20E5977227C3A9000D53AA7 /* Info.plist */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
+				B239F91C227EBCCA004EF513 /* Pencil.swift */,
 			);
 			path = DrawingApp;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
+				B25A09B7227D98C200E41356 /* ColorSelectorView.swift in Sources */,
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
+				B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */,
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

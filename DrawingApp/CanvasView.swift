@@ -11,14 +11,23 @@ import Stevia
 import UIKit
 class CanvasView: UIView {
     var paths: Array<UIBezierPath> = []
+    var pathColors: Array<UIColor> = []
+    var undonePathColors: Array<UIColor> = []
     var undonePaths: Array<UIBezierPath> = []
     var prevPoint = CGPoint.zero
+    var brushColor = UIColor.black
     func setup() {
+    }
+    
+    func setBrushColor(color: UIColor) {
+        brushColor = color
     }
     
     func clearDrawing() {
         paths.removeAll()
+        pathColors.removeAll()
         undonePaths.removeAll()
+        undonePathColors.removeAll()
         setNeedsDisplay()
     }
     
@@ -45,6 +54,7 @@ class CanvasView: UIView {
         if let touch = touches.first {
             let point = touch.location(in: self)
             path.move(to: point)
+            pathColors.append(brushColor)
             paths.append(path)
             prevPoint = point
             setNeedsDisplay()
@@ -71,8 +81,8 @@ class CanvasView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        for path in paths {
-            UIColor.black.set()
+        for (index, path) in paths.enumerated() {
+            pathColors[index].set()
             path.lineWidth = 2
             path.lineCapStyle = .round
             path.stroke()

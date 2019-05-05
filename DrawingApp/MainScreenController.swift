@@ -12,20 +12,22 @@ import UIKit
 import Stevia
 
 class MainScreenController: UIViewController {
-    var pencilColor = UIColor.black
+    var brushColor = UIColor.black
     let undoButton = UIButton(type: UIButton.ButtonType.system)
     let redoButton = UIButton(type: UIButton.ButtonType.system)
     let resetButton = UIButton(type: UIButton.ButtonType.system)
     let colorSelectorButton = UIButton(type: UIButton.ButtonType.system)
     let brushSelectorButton = UIButton(type: UIButton.ButtonType.system)
     var mainImageView = CanvasView()
+    var colorSelectorView = ColorSelectorView()
+    let screenSize = UIScreen.main.bounds
     
     var toolBar = UIView()
     var bottomBar = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let screenSize = UIScreen.main.bounds
+        colorSelectorView.mainScreenController = self
         view.frame = CGRect(origin: .zero, size: CGSize(width: screenSize.width, height: screenSize.height))
         view.backgroundColor = .white
         
@@ -45,6 +47,8 @@ class MainScreenController: UIViewController {
         mainImageView.Bottom == bottomBar.Top
         mainImageView.height(screenSize.height - 200)
         mainImageView.width(screenSize.width)
+        
+        
         
         mainImageView.backgroundColor = .white
 //        mainImageView.frame = CGRect(origin: .zero, size: CGSize(width: screenSize.width, height: screenSize.height))
@@ -77,12 +81,24 @@ class MainScreenController: UIViewController {
         redoButton.text("Redo")
         
         // adding actions to all the buttons in bottom bar
+        colorSelectorButton.addTarget(self, action: #selector(showColorSelectorDialog), for:.touchUpInside)
+        brushSelectorButton.addTarget(self, action: #selector(showColorSelectorDialog), for:.touchUpInside)
         undoButton.addTarget(self, action: #selector(undo), for:.touchUpInside)
         redoButton.addTarget(self, action: #selector(redo), for:.touchUpInside)
         resetButton.addTarget(self, action: #selector(reset), for:.touchUpInside)
         
     }
     
+    
+    func changeBrushColor(color: UIColor) {
+        mainImageView.setBrushColor(color: color)
+    }
+    
+    @objc func showColorSelectorDialog(sender: UIButton!) {
+        colorSelectorView.modalTransitionStyle = .crossDissolve
+        colorSelectorView.modalPresentationStyle = .overCurrentContext
+        self.present(colorSelectorView, animated: true, completion: nil)
+    }
     @objc func undo(sender: UIButton!) {
         mainImageView.undoAction()
     }
