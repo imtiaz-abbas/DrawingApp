@@ -14,8 +14,11 @@ class CanvasView: UIView {
     var pathColors: Array<UIColor> = []
     var undonePathColors: Array<UIColor> = []
     var undonePaths: Array<UIBezierPath> = []
+    var strokes: Array<Int> = []
+    var undoneStrokes: Array<Int> = []
     var prevPoint = CGPoint.zero
     var brushColor = UIColor.black
+    var brushStroke = 2
     func setup() {
     }
     
@@ -23,9 +26,15 @@ class CanvasView: UIView {
         brushColor = color
     }
     
+    func setBrushStroke(stroke: Int) {
+        brushStroke = stroke
+    }
+    
     func clearDrawing() {
         paths.removeAll()
         pathColors.removeAll()
+        strokes.removeAll()
+        undoneStrokes.removeAll()
         undonePaths.removeAll()
         undonePathColors.removeAll()
         setNeedsDisplay()
@@ -40,6 +49,10 @@ class CanvasView: UIView {
             undonePathColors.append(pathColor)
             setNeedsLayout()
         }
+        if let pathStroke = strokes.popLast(){
+            undoneStrokes.append(pathStroke)
+            setNeedsLayout()
+        }
     }
     
     func redoAction() {
@@ -49,6 +62,10 @@ class CanvasView: UIView {
         }
         if let pathColor = undonePathColors.popLast() {
             pathColors.append(pathColor)
+            setNeedsLayout()
+        }
+        if let pathStroke = undoneStrokes.popLast(){
+            strokes.append(pathStroke)
             setNeedsLayout()
         }
     }
@@ -64,6 +81,7 @@ class CanvasView: UIView {
             path.move(to: point)
             pathColors.append(brushColor)
             paths.append(path)
+            strokes.append(brushStroke)
             prevPoint = point
             setNeedsDisplay()
         }
@@ -72,6 +90,7 @@ class CanvasView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         undonePaths.removeAll()
         undonePathColors.removeAll()
+        undoneStrokes.removeAll()
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -92,7 +111,7 @@ class CanvasView: UIView {
         super.draw(rect)
         for (index, path) in paths.enumerated() {
             pathColors[index].set()
-            path.lineWidth = 2
+            path.lineWidth = CGFloat(strokes[index])
             path.lineCapStyle = .round
             path.stroke()
         }

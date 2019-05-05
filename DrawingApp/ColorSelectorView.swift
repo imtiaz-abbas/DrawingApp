@@ -13,6 +13,7 @@ import UIKit
 import Stevia
 class MyTapGesture: UITapGestureRecognizer {
     var color = UIColor.black
+    var stroke = 2
 }
 class ColorSelectorView: UIViewController {
     var dialogView = UIView()

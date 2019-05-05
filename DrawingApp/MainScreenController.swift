@@ -20,6 +20,7 @@ class MainScreenController: UIViewController {
     let brushSelectorButton = UIButton(type: UIButton.ButtonType.system)
     var mainImageView = CanvasView()
     var colorSelectorView = ColorSelectorView()
+    var strokeSelectorView = StrokeSelectorView()
     let screenSize = UIScreen.main.bounds
     
     var toolBar = UIView()
@@ -28,6 +29,7 @@ class MainScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorSelectorView.mainScreenController = self
+        strokeSelectorView.mainScreenController = self
         view.frame = CGRect(origin: .zero, size: CGSize(width: screenSize.width, height: screenSize.height))
         view.backgroundColor = .white
         
@@ -82,7 +84,7 @@ class MainScreenController: UIViewController {
         
         // adding actions to all the buttons in bottom bar
         colorSelectorButton.addTarget(self, action: #selector(showColorSelectorDialog), for:.touchUpInside)
-        brushSelectorButton.addTarget(self, action: #selector(showColorSelectorDialog), for:.touchUpInside)
+        brushSelectorButton.addTarget(self, action: #selector(showStrokeSelectorDialog), for:.touchUpInside)
         undoButton.addTarget(self, action: #selector(undo), for:.touchUpInside)
         redoButton.addTarget(self, action: #selector(redo), for:.touchUpInside)
         resetButton.addTarget(self, action: #selector(reset), for:.touchUpInside)
@@ -94,10 +96,19 @@ class MainScreenController: UIViewController {
         mainImageView.setBrushColor(color: color)
     }
     
+    func changeBrushStroke(stroke: Int) {
+        mainImageView.setBrushStroke(stroke: stroke)
+    }
+    
     @objc func showColorSelectorDialog(sender: UIButton!) {
         colorSelectorView.modalTransitionStyle = .crossDissolve
         colorSelectorView.modalPresentationStyle = .overCurrentContext
         self.present(colorSelectorView, animated: true, completion: nil)
+    }
+    @objc func showStrokeSelectorDialog(sender: UIButton!) {
+        strokeSelectorView.modalTransitionStyle = .crossDissolve
+        strokeSelectorView.modalPresentationStyle = .overCurrentContext
+        self.present(strokeSelectorView, animated: true, completion: nil)
     }
     @objc func undo(sender: UIButton!) {
         mainImageView.undoAction()
