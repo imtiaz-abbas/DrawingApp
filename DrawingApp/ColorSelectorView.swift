@@ -17,7 +17,6 @@ class MyTapGesture: UITapGestureRecognizer {
 }
 class ColorSelectorView: UIViewController {
     var dialogView = UIView()
-    var redColorView = UIView()
     var colorViews: Array<UIView> = []
     var pencils: Array<Pencil> = []
     var mainScreenController: MainScreenController?
@@ -34,9 +33,10 @@ class ColorSelectorView: UIViewController {
         let dialogGesture = UITapGestureRecognizer(target: self,  action: #selector(doNothing(_:)))
         self.view.addGestureRecognizer(gesture)
         self.dialogView.addGestureRecognizer(dialogGesture)
-        
+        let numberOfColors = 11
+        let theta = 360 / numberOfColors
         var i = 0
-        while (i < 11) {
+        while (i < numberOfColors) {
             if let pencil = Pencil(tag: i + 1) {
                 pencils.append(pencil)
                 let colorView = UIView()
@@ -45,15 +45,14 @@ class ColorSelectorView: UIViewController {
                 colorGesture.color = pencil.color
                 colorView.addGestureRecognizer(colorGesture)
                 dialogView.sv(colorView)
-                colorView.height(20)
-                colorView.width(20)
+                let cx = CGFloat(140)
+                let cy = CGFloat(140)
+                let rad = CGFloat(100)
+                colorView.frame =  CGRect(x: cx + (rad * cos(CGFloat(i * theta))), y: cy + (rad * sin(CGFloat(i * theta))), width:20, height:20)
                 colorView.layer.cornerRadius = 10
                 colorView.layer.borderColor = UIColor.gray.cgColor
                 colorView.layer.borderWidth = 0.5
                 colorView.backgroundColor = pencil.color
-                let left = CGFloat(i) * 20 + 5 * CGFloat(i + 1)
-                colorView.Left == left
-                colorView.Top == 20
             }
             i += 1
         }
