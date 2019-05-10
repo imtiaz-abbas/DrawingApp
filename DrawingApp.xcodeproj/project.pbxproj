@@ -13,6 +13,7 @@
 		B20E5976227C3A9000D53AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */; };
 		B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */; };
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
+		B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */; };
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorView.swift */; };
@@ -31,6 +32,7 @@
 		B20E5977227C3A9000D53AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		B20E5981227C4F5D00D53AA7 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScreenController.swift; sourceTree = "<group>"; };
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
+				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
 				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 				B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */,
 				B25A09B6227D98C200E41356 /* ColorSelectorView.swift */,
@@ -225,6 +228,7 @@
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
 				B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */,
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
+				B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */,
 				B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
