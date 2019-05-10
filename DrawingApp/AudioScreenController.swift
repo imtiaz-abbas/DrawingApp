@@ -16,11 +16,13 @@ class AudioScreenController: UIViewController {
     let playButton = UIButton(type: UIButton.ButtonType.system)
     let stopButton = UIButton(type: UIButton.ButtonType.system)
     let screenSize = UIScreen.main.bounds
+    let colorSelectorButton = UIButton(type: UIButton.ButtonType.system)
+    var colorSelectorViewController = ColorSelectorViewController()
     var wasAudioPlaying = false
     var player: AVAudioPlayer?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        colorSelectorViewController.mainScreenController = nil
         NotificationCenter.default.addObserver(self, selector: #selector(appBackgroundEvent), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appForegroundEvent), name: UIApplication.didBecomeActiveNotification, object: nil)
         
@@ -28,7 +30,7 @@ class AudioScreenController: UIViewController {
         view.backgroundColor = .white
         
         //adding subviews to mainContainer
-        view.sv(playButton, stopButton)
+        view.sv(playButton, stopButton, colorSelectorButton)
         var playButtonText = "Play"
         if (player?.isPlaying ?? false) {
             playButtonText = "Pause"
@@ -39,9 +41,25 @@ class AudioScreenController: UIViewController {
         stopButton.Right == 20
         stopButton.Bottom == 40
         stopButton.text("Stop")
+        colorSelectorButton.text("New Screen")
+        colorSelectorButton.centerVertically()
+        colorSelectorButton.centerHorizontally()
+        colorSelectorButton.addTarget(self, action: #selector(showColorSelectorDialog), for:.touchUpInside)
         playButton.addTarget(self, action: #selector(togglePlayer), for:.touchUpInside)
         stopButton.addTarget(self, action: #selector(stop), for:.touchUpInside)
         play()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        player?.setVolume(1.0, fadeDuration: 0.2)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        player?.setVolume(0.5, fadeDuration: 0.2)
+    }
+    
+    @objc func showColorSelectorDialog(sender: UIButton!) {
+        self.present(colorSelectorViewController, animated: true, completion: nil)
     }
     
     @objc func stop() {

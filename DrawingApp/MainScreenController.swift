@@ -19,7 +19,7 @@ class MainScreenController: UIViewController {
     let colorSelectorButton = UIButton(type: UIButton.ButtonType.system)
     let brushSelectorButton = UIButton(type: UIButton.ButtonType.system)
     var mainImageView = CanvasView()
-    var colorSelectorView = ColorSelectorView()
+    var colorSelectorViewController = ColorSelectorViewController()
     var strokeSelectorView = StrokeSelectorView()
     let screenSize = UIScreen.main.bounds
     
@@ -28,7 +28,7 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorSelectorView.mainScreenController = self
+        colorSelectorViewController.mainScreenController = self
         strokeSelectorView.mainScreenController = self
         view.frame = CGRect(origin: .zero, size: CGSize(width: screenSize.width, height: screenSize.height))
         view.backgroundColor = .white
@@ -101,9 +101,9 @@ class MainScreenController: UIViewController {
     }
     
     @objc func showColorSelectorDialog(sender: UIButton!) {
-        colorSelectorView.modalTransitionStyle = .crossDissolve
-        colorSelectorView.modalPresentationStyle = .overCurrentContext
-        self.present(colorSelectorView, animated: true, completion: nil)
+        colorSelectorViewController.modalTransitionStyle = .crossDissolve
+        colorSelectorViewController.modalPresentationStyle = .overCurrentContext
+        self.present(colorSelectorViewController, animated: true, completion: nil)
     }
     @objc func showStrokeSelectorDialog(sender: UIButton!) {
         strokeSelectorView.modalTransitionStyle = .crossDissolve

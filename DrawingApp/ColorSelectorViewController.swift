@@ -1,5 +1,5 @@
 //
-//  ColorSelectorView.swift
+//  ColorSelectorViewController.swift
 //  DrawingApp
 //
 //  Created by imtiaz abbas on 04/05/19.
@@ -15,13 +15,14 @@ class MyTapGesture: UITapGestureRecognizer {
     var color = UIColor.black
     var stroke = 2
 }
-class ColorSelectorView: UIViewController {
+class ColorSelectorViewController: UIViewController {
     var dialogView = UIView()
     var colorViews: Array<UIView> = []
     var pencils: Array<Pencil> = []
     weak var mainScreenController: MainScreenController?
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+//        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        view.backgroundColor = .white
         view.sv(dialogView)
         dialogView.height(300)
         dialogView.width(300)
