@@ -1,20 +1,34 @@
 PODS:
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - SteviaLayout (4.5.0)
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
+  - RxCocoa
+  - RxSwift
   - SteviaLayout
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SteviaLayout
     - SwiftLint
 
 SPEC CHECKSUMS:
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SteviaLayout: aa64a62810544348c9e328a6521cb9160fa82ec6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 4a7dfff05e9845fe07ffd64b77d765a259559047
+PODFILE CHECKSUM: 5ec4d84969ab7f9ca1d4c2092d936aec4c6796af
 
 COCOAPODS: 1.6.1

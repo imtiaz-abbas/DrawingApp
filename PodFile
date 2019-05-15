@@ -2,4 +2,6 @@ target 'DrawingApp' do
     use_frameworks!
     pod 'SwiftLint'
     pod 'SteviaLayout'
+    pod 'RxSwift'
+    pod 'RxCocoa'
   end
