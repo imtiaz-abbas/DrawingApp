@@ -111,7 +111,7 @@ class GameLoopVC : UIViewController {
         Observable<Int>.timer(0, period: 4, scheduler: MainScheduler.instance)
             .subscribe(onNext: {value in
                 let calendar = Calendar.current
-                let randomNumber = Int.random(in: 1 ..< 10)
+                let randomNumber = Int.random(in: 2 ..< 10)
                 let time = calendar.date(byAdding: .second, value: randomNumber, to: Date())
                 // adding new message to upcoming messages
                 self.upcomingMessages.append(Message(timestamp: time, color: randomNumber))
@@ -122,26 +122,24 @@ class GameLoopVC : UIViewController {
     }
     
     func observeMessages() {
-        Observable<Int>.timer(0, period: 2, scheduler: MainScheduler.instance)
+        Observable<Int>.timer(0, period: 0.1, scheduler: MainScheduler.instance)
             .subscribe(onNext: {value in
-                var removedIndices: Array<Int> = []
                 // filtering completed messages and discarded messages from upcoming messages
                 self.upcomingMessages = self.upcomingMessages
                     .enumerated()
                     .filter {
-                        var messageDateTime = $1.timestamp
+                        let messageDateTime = $1.timestamp
                         let difference = Calendar.current.dateComponents([.second, .nanosecond], from: Date(), to: messageDateTime!)
                         let nanoSeconds = difference.nanosecond!
                         let milliSeconds = nanoSeconds / 1_000_000
                         let seconds = difference.second!
-                        if (seconds <= 0) {
-                            removedIndices.append($0)
-                            if (seconds == 0 && milliSeconds <= 100) {
-                                self.completedMessages.append($1)
+                        if (seconds <= 0 && milliSeconds <= 0) {
+                            if (seconds == 0 && milliSeconds >= -100) {
+                                self.completedMessages.insert($1, at: 0)
                             } else {
                                 // discarding the message if the delay is more than 100ms
                                 $1.discard()
-                                self.completedMessages.append($1)
+                                self.completedMessages.insert($1, at: 0)
                             }
                             return false
                         }
