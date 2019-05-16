@@ -14,7 +14,7 @@ import AVFoundation
 import RxSwift
 
 struct Message {
-  public let timestamp: Date?
+  public let timestamp: Date!
   public var color: UIColor = UIColor.black
   public var discarded: Bool = false
 }
@@ -88,6 +88,7 @@ class GameLoopVC : UIViewController {
             dateTimeLabel.text = "\(String(format: "%02d", components.hour ?? 0)):\(String(format: "%02d", components.minute ?? 0)):\(String(format: "%02d", components.second ?? 0))"
         }
     }
+
     func refreshCompletedQueueView() {
         for subView in completedQueueView.subviews {
             subView.removeFromSuperview()
@@ -133,6 +134,9 @@ class GameLoopVC : UIViewController {
                 let time = calendar.date(byAdding: .second, value: randomNumber, to: Date())
                 // adding new message to upcoming messages
               	self.upcomingMessages.append(Message(timestamp: time, color: Pencil(tag: randomNumber)?.color ?? UIColor.black, discarded: false))
+              	self.upcomingMessages = self.upcomingMessages.sorted(by: { (message1, message2) -> Bool in
+                		message1.timestamp < message2.timestamp
+              	})
                 self.refreshUpcomingQueueView()
                 
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -140,34 +144,33 @@ class GameLoopVC : UIViewController {
     }
     
     func observeMessages() {
-        Observable<Int>.timer(0, period: 0.1, scheduler: MainScheduler.instance)
+        Observable<Int>.interval(RxTimeInterval.milliseconds(100), scheduler: ConcurrentMainScheduler.instance)
             .subscribe(onNext: {value in
                 // filtering completed messages and discarded messages from upcoming messages
-                self.upcomingMessages = self.upcomingMessages
-                    .enumerated()
-                    .filter {
-                        let messageDateTime = $1.timestamp
-                        let difference = Calendar.current.dateComponents([.second, .nanosecond], from: Date(), to: messageDateTime!)
-                        let nanoSeconds = difference.nanosecond!
-                        let milliSeconds = nanoSeconds / 1_000_000
-                        let seconds = difference.second!
-                        if (seconds <= 0 && milliSeconds <= 0) {
-                            if (seconds == 0 && milliSeconds >= -100) {
-                                self.completedMessages.insert($1, at: 0)
-                            } else {
-                                // discarding the message if the delay is more than 100ms
-                              	let message = Message(timestamp: $1.timestamp, color: $1.color, discarded: true)
-                                self.completedMessages.insert(message, at: 0)
-                            }
-                            return false
-                        }
-                        return true
-                    }
-                    .map { $0.element }
+              	if let messagePop = self.upcomingMessages.first {
+                  let messageDateTime = messagePop.timestamp
+                  let difference = Calendar.current.dateComponents([.second, .nanosecond], from: Date(), to: messageDateTime!)
+                  let seconds = difference.second ?? 0
+                  let nanoseconds = difference.nanosecond ?? 0
+                  let milliSeconds = (seconds * 1000) + (nanoseconds / 1_000_000)
+
+                  if (milliSeconds <= 100 && milliSeconds >= -100) {
+                    //valid message emit
+                    self.completedMessages.insert(messagePop, at: 0)
+                    self.upcomingMessages.removeFirst()
+                  } else if (milliSeconds <= -100){
+                  	//discarding the message if the delay is more than 100ms
+                    let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: true)
+                    self.completedMessages.insert(message, at: 0)
+                    self.upcomingMessages.removeFirst()
+                  }
+              	}
+
                 // updating upcoming and completed views after updating upcoming and completed messages
                 self.refreshUpcomingQueueView()
                 self.refreshCompletedQueueView()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
+      			.disposed(by: disposeBag)
     }
     
     func runGameLoop() {
