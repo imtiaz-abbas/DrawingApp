@@ -13,40 +13,58 @@ import Stevia
 import AVFoundation
 import RxSwift
 
-class Message {
-    public let timestamp: Date?
-    public let color: Int?
-    public var discarded: Bool?
-    init(timestamp: Date?, color: Int?) {
-        self.timestamp = timestamp
-        self.color = color
-        self.discarded = false
-    }
-    func discard() {
-        self.discarded = true
-    }
+struct Message {
+  public let timestamp: Date?
+  public var color: UIColor = UIColor.black
+  public var discarded: Bool = false
 }
 
 class GameLoopVC : UIViewController {
+
+  	let disposeBag = DisposeBag()
+
     let screenSize = UIScreen.main.bounds
     let upcomingQueueView = UIView()
     let completedQueueView = UIView()
+    let scrollView = UIScrollView()
+  	var currentTimeView = UILabel()
     var upcomingMessages: Array<Message> = []
     var completedMessages: Array<Message> = []
+
+  	let dateFormatter: DateFormatter = {
+    	  let d = DateFormatter()
+				d.dateFormat = "HH:mm:ss"
+      	return d
+  	}()
     
     override func viewDidLoad() {
         runGameLoop()
         view.backgroundColor = .white
-        view.sv(upcomingQueueView, completedQueueView)
+        view.sv(upcomingQueueView, scrollView, currentTimeView)
+
+      	currentTimeView.centerHorizontally()
+				currentTimeView.Top == view.Top + 40
+				updateCurrentTime()
+
         upcomingQueueView.width(screenSize.width / 2)
-        completedQueueView.width(screenSize.width / 2)
+        scrollView.width(screenSize.width / 2)
         upcomingQueueView.height(screenSize.height)
-        completedQueueView.height(screenSize.height)
+        scrollView.fillVertically()
         upcomingQueueView.Left == 0
-        completedQueueView.Left == upcomingQueueView.Right
+        scrollView.Left == upcomingQueueView.Right
+
         upcomingQueueView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.2)
-        completedQueueView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.2)
+        scrollView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.2)
+
+      	scrollView.sv(completedQueueView)
+      	completedQueueView.fillContainer()
     }
+
+  private func updateCurrentTime() {
+    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+      self.currentTimeView.text = self.dateFormatter.string(from: Date())
+    }
+  }
     
     func refreshUpcomingQueueView() {
         for subView in upcomingQueueView.subviews {
@@ -61,7 +79,7 @@ class GameLoopVC : UIViewController {
             messageView.Top == CGFloat(index + 1) * CGFloat(100)
             messageView.Left == 20
             messageView.Right == 20
-            messageView.backgroundColor = Pencil(tag: message.color ?? 2)?.color
+            messageView.backgroundColor = message.color //Pencil(tag: message.color ?? 2)?.color
             messageView.sv(dateTimeLabel)
             dateTimeLabel.centerHorizontally()
             dateTimeLabel.centerVertically()
@@ -83,11 +101,11 @@ class GameLoopVC : UIViewController {
             messageView.Top == CGFloat(index + 1) * CGFloat(100)
             messageView.Left == 20
             messageView.Right == 20
-            messageView.backgroundColor = Pencil(tag: message.color ?? 2)?.color
+            messageView.backgroundColor = message.color // Pencil(tag: message.color ?? 2)?.color
             messageView.sv(dateTimeLabel)
             dateTimeLabel.centerHorizontally()
             dateTimeLabel.centerVertically()
-            if (message.discarded ?? false) {
+            if (message.discarded) {
                 let discardedView = UIView()
                 messageView.sv(discardedView)
                 discardedView.backgroundColor = .red
@@ -105,20 +123,20 @@ class GameLoopVC : UIViewController {
             dateTimeLabel.text = "\(String(format: "%02d", components.hour ?? 0)):\(String(format: "%02d", components.minute ?? 0)):\(String(format: "%02d", components.second ?? 0))"
         }
     }
-    
-    
+
     func emitMessages() {
-        Observable<Int>.timer(0, period: 4, scheduler: MainScheduler.instance)
-            .subscribe(onNext: {value in
+      	Observable<Int>.interval(RxTimeInterval.seconds(4), scheduler: ConcurrentMainScheduler.instance)
+      			.observeOn(MainScheduler.asyncInstance)
+        		.subscribe(onNext: {value in
                 let calendar = Calendar.current
                 let randomNumber = Int.random(in: 2 ..< 10)
                 let time = calendar.date(byAdding: .second, value: randomNumber, to: Date())
                 // adding new message to upcoming messages
-                self.upcomingMessages.append(Message(timestamp: time, color: randomNumber))
+              	self.upcomingMessages.append(Message(timestamp: time, color: Pencil(tag: randomNumber)?.color ?? UIColor.black, discarded: false))
                 self.refreshUpcomingQueueView()
                 
             }, onError: nil, onCompleted: nil, onDisposed: nil)
-
+      			.disposed(by: disposeBag)
     }
     
     func observeMessages() {
@@ -138,8 +156,8 @@ class GameLoopVC : UIViewController {
                                 self.completedMessages.insert($1, at: 0)
                             } else {
                                 // discarding the message if the delay is more than 100ms
-                                $1.discard()
-                                self.completedMessages.insert($1, at: 0)
+                              	let message = Message(timestamp: $1.timestamp, color: $1.color, discarded: true)
+                                self.completedMessages.insert(message, at: 0)
                             }
                             return false
                         }
