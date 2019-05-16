@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0339A1228D815900B78EEA /* GameLoopHandler.swift */; };
 		B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */; };
 		B20E5971227C3A8F00D53AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E596F227C3A8F00D53AA7 /* Main.storyboard */; };
 		B20E5973227C3A9000D53AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E5972227C3A9000D53AA7 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0339A1228D815900B78EEA /* GameLoopHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopHandler.swift; sourceTree = "<group>"; };
 		291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.release.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.release.xcconfig"; sourceTree = "<group>"; };
 		AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.debug.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 				B239F91C227EBCCA004EF513 /* Pencil.swift */,
 				B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */,
+				1D0339A1228D815900B78EEA /* GameLoopHandler.swift */,
 			);
 			path = DrawingApp;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
 				B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */,
 				B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */,
+				1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
