@@ -48,7 +48,7 @@ enum Pencil {
         case 11:
             self = .eraser
         default:
-            return nil
+            self = .eraser
         }
     }
     
