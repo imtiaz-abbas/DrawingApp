@@ -112,13 +112,9 @@ class GameLoopVC : UIViewController {
         }
     }
 
-  	func addMessagToQueue(message: Message) {
+    func addMessagToQueue(message: Message) {
       self.upcomingCollectionView.addMessage(message: message)
-  	}
-
-  	func updateMessage(message: Message) {
-      self.upcomingCollectionView.removeMessage(message: message)
-  	}
+    }
 
     func emitMessages() {
       	Observable<Int>.interval(RxTimeInterval.seconds(4), scheduler: ConcurrentMainScheduler.instance)
@@ -147,7 +143,7 @@ class GameLoopVC : UIViewController {
 
                   if (milliSeconds <= 100 && milliSeconds >= -100) {
                     //valid message emit
-                    let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: true, completed: true)
+                    let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: false, completed: true)
 //                    self.completedMessages.insert(message, at: 0)
                     self.completedCollectionView.addMessage(message: message)
                     self.upcomingCollectionView.removeMessage(message: message)

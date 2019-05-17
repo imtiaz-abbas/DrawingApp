@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Stevia
 
 class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -30,10 +31,16 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
   }
 
   func addMessage(message: Message) {
-		messages.append(message)
-    messages = messages.sorted(by: { (message1, message2) -> Bool in
-      message1.timestamp < message2.timestamp
-    })
+    messages.append(message)
+    if (message.completed) {
+        messages = messages.sorted(by: { (message1, message2) -> Bool in
+            message1.timestamp > message2.timestamp
+        })
+    } else {
+        messages = messages.sorted(by: { (message1, message2) -> Bool in
+            message1.timestamp < message2.timestamp
+        })
+    }
     collectionView.reloadData()
   }
 
@@ -61,6 +68,7 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
 class MessageViewCell: UICollectionViewCell {
   var message: Message!
   let dateTimeLabel = UILabel()
+  let discardedView = UIView()
 
   let dateFormatter: DateFormatter = {
     let d = DateFormatter()
@@ -70,10 +78,21 @@ class MessageViewCell: UICollectionViewCell {
 
   func setupView() {
     self.contentView.sv(dateTimeLabel)
+    self.contentView.sv(discardedView)
 
     self.backgroundColor = message?.color ?? UIColor.black
     self.dateTimeLabel.centerHorizontally()
     self.dateTimeLabel.centerVertically()
     self.dateTimeLabel.text = self.dateFormatter.string(from: message?.timestamp ?? Date())
+    
+    if (message?.discarded ?? false) {
+        discardedView.backgroundColor = .red
+        discardedView.height(20)
+        discardedView.width(20)
+        discardedView.Right == 20
+        discardedView.Top == 20
+        discardedView.layer.borderColor = UIColor.black.cgColor
+        discardedView.layer.borderWidth = 1
+    }
   }
 }
