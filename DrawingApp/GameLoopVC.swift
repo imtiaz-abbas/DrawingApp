@@ -54,17 +54,14 @@ class GameLoopVC : UIViewController {
 				updateCurrentTime()
 
         upcomingCollectionView.width(screenSize.width / 2)
-        
         upcomingCollectionView.height(screenSize.height)
         
         completedCollectionView.width(screenSize.width / 2)
-        
         completedCollectionView.height(screenSize.height)
         
         upcomingCollectionView.Left == 0
-        
         completedCollectionView.Left == upcomingCollectionView.Right
-
+        completedCollectionView.sortOrderReverse = true
     }
 
   	override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +131,7 @@ class GameLoopVC : UIViewController {
         Observable<Int>.interval(RxTimeInterval.milliseconds(100), scheduler: ConcurrentMainScheduler.instance)
             .subscribe(onNext: {value in
                 // filtering completed messages and discarded messages from upcoming messages
-              	if let messagePop = self.upcomingCollectionView.messages.first {
+              	if let messagePop = self.upcomingCollectionView.getFirstUpcomingMessage() {
                   let messageDateTime = messagePop.timestamp
                   let difference = Calendar.current.dateComponents([.second, .nanosecond], from: Date(), to: messageDateTime!)
                   let seconds = difference.second ?? 0
@@ -144,17 +141,19 @@ class GameLoopVC : UIViewController {
                   if (milliSeconds <= 100 && milliSeconds >= -100) {
                     //valid message emit
                     let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: false, completed: true)
-//                    self.completedMessages.insert(message, at: 0)
-                    self.completedCollectionView.addMessage(message: message)
+
                     self.upcomingCollectionView.removeMessage(message: message)
-//                    self.updateMessage(message: message)
+                    Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+                      self.completedCollectionView.addMessage(message: message)
+                    })
+                    
                   } else if (milliSeconds <= -100){
                   	//discarding the message if the delay is more than 100ms
                     let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: true, completed: true)
-//                    self.completedMessages.insert(message, at: 0)
-                    self.completedCollectionView.addMessage(message: message)
                     self.upcomingCollectionView.removeMessage(message: message)
-//                    self.updateMessage(message: message)
+                    Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+                      self.completedCollectionView.addMessage(message: message)
+                    })
                   }
               	}
                 

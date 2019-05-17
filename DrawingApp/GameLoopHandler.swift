@@ -12,6 +12,7 @@ import Stevia
 
 class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
 
+  var sortOrderReverse = false
 	var messages: Array<Message> = []
   var collectionView: UICollectionView!
 
@@ -29,18 +30,24 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
     self.collectionView.dataSource = self
     self.collectionView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.2)
   }
+  
+  func getFirstUpcomingMessage() -> Message? {
+    return messages.first
+  }
 
   func addMessage(message: Message) {
     messages.append(message)
-    if (message.completed) {
-        messages = messages.sorted(by: { (message1, message2) -> Bool in
-            message1.timestamp > message2.timestamp
-        })
+    
+    if sortOrderReverse {
+      messages = messages.sorted(by: { (message1, message2) -> Bool in
+        message1.timestamp > message2.timestamp
+      })
     } else {
-        messages = messages.sorted(by: { (message1, message2) -> Bool in
-            message1.timestamp < message2.timestamp
-        })
+      messages = messages.sorted(by: { (message1, message2) -> Bool in
+        message1.timestamp < message2.timestamp
+      })
     }
+    
     var insertAtIndex = -1
     for (index, m) in messages.enumerated() {
       if (m.id() == message.id()) {
@@ -49,9 +56,11 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
     }
     
     if (insertAtIndex > -1) {
-      self.collectionView?.performBatchUpdates({
-        self.collectionView?.insertItems(at: [IndexPath(item: insertAtIndex, section: 0)])
-      }, completion: nil)
+      UIView.animate(withDuration: 0.3) {
+        self.collectionView?.performBatchUpdates({
+          self.collectionView?.insertItems(at: [IndexPath(item: insertAtIndex, section: 0)])
+        }, completion: nil)
+      }
     }
   }
 
@@ -60,10 +69,13 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
       if (element.id() == message.id()) {
         messages.remove(at: index)
         let indexPath = IndexPath(item: 0, section: index)
-          self.collectionView.performBatchUpdates({
-            self.collectionView.deleteItems(at:[indexPath])
-          }, completion:nil)
         
+        UIView.animate(withDuration: 0.3) {
+            self.collectionView.performBatchUpdates({
+              self.collectionView.deleteItems(at:[indexPath])
+            }, completion:nil)
+        }
+        return
       }
     }
   }
@@ -92,8 +104,7 @@ class MessageViewCell: UICollectionViewCell {
   }()
 
   func setupView() {
-    self.contentView.sv(dateTimeLabel)
-    self.contentView.sv(discardedView)
+    self.contentView.sv(dateTimeLabel, discardedView)
 
     self.backgroundColor = message?.color ?? UIColor.black
     self.dateTimeLabel.centerHorizontally()
@@ -104,8 +115,8 @@ class MessageViewCell: UICollectionViewCell {
         discardedView.backgroundColor = .red
         discardedView.height(20)
         discardedView.width(20)
-        discardedView.Right == 20
-        discardedView.Top == 20
+        discardedView.Left == dateTimeLabel.Right + 20
+        discardedView.centerVertically()
         discardedView.layer.borderColor = UIColor.black.cgColor
         discardedView.layer.borderWidth = 1
     }
