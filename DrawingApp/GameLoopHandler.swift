@@ -41,16 +41,31 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
             message1.timestamp < message2.timestamp
         })
     }
-    collectionView.reloadData()
+    var insertAtIndex = -1
+    for (index, m) in messages.enumerated() {
+      if (m.id() == message.id()) {
+        insertAtIndex = index
+      }
+    }
+    
+    if (insertAtIndex > -1) {
+      self.collectionView?.performBatchUpdates({
+        self.collectionView?.insertItems(at: [IndexPath(item: insertAtIndex, section: 0)])
+      }, completion: nil)
+    }
   }
 
   func removeMessage(message: Message) {
     messages.enumerated().forEach { (index, element) in
       if (element.id() == message.id()) {
         messages.remove(at: index)
+        let indexPath = IndexPath(item: 0, section: index)
+          self.collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at:[indexPath])
+          }, completion:nil)
+        
       }
     }
-    collectionView.reloadData()
   }
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
