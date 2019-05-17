@@ -21,7 +21,7 @@ struct Message {
 
   func id() -> String {
     let components = Calendar.current.dateComponents([.minute, .second, .nanosecond], from: timestamp)
-    return "\(components.minute) \(components.second) \(components.nanosecond)"
+    return "\(components.minute!) \(components.second!) \(components.nanosecond!)"
   }
 }
 
@@ -31,8 +31,8 @@ class GameLoopVC : UIViewController {
 
     let screenSize = UIScreen.main.bounds
   	let upcomingCollectionView: MessageCollectionView = MessageCollectionView()
+    let completedCollectionView: MessageCollectionView = MessageCollectionView()
 
-    let upcomingQueueView = UIView()
     let completedQueueView = UIView()
     let scrollView = UIScrollView()
   	var currentTimeView = UILabel()
@@ -47,28 +47,30 @@ class GameLoopVC : UIViewController {
     override func viewDidLoad() {
         runGameLoop()
         view.backgroundColor = .white
-        view.sv(upcomingCollectionView, scrollView, currentTimeView)
+        view.sv(upcomingCollectionView, completedCollectionView, currentTimeView)
 
       	currentTimeView.centerHorizontally()
 				currentTimeView.Top == view.Top + 40
 				updateCurrentTime()
 
         upcomingCollectionView.width(screenSize.width / 2)
-        scrollView.width(screenSize.width / 2)
+        
         upcomingCollectionView.height(screenSize.height)
-        scrollView.fillVertically()
+        
+        completedCollectionView.width(screenSize.width / 2)
+        
+        completedCollectionView.height(screenSize.height)
+        
         upcomingCollectionView.Left == 0
-        scrollView.Left == upcomingCollectionView.Right
+        
+        completedCollectionView.Left == upcomingCollectionView.Right
 
-        scrollView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.2)
-
-      	scrollView.sv(completedQueueView)
-      	completedQueueView.fillContainer()
     }
 
   	override func viewWillAppear(_ animated: Bool) {
     	super.viewWillAppear(animated)
     	upcomingCollectionView.setupView()
+        completedCollectionView.setupView()
   	}
 
   	private func updateCurrentTime() {
@@ -146,22 +148,20 @@ class GameLoopVC : UIViewController {
                   if (milliSeconds <= 100 && milliSeconds >= -100) {
                     //valid message emit
                     let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: true, completed: true)
-                    self.completedMessages.insert(message, at: 0)
+//                    self.completedMessages.insert(message, at: 0)
+                    self.completedCollectionView.addMessage(message: message)
                     self.upcomingCollectionView.removeMessage(message: message)
-
-                    self.updateMessage(message: message)
+//                    self.updateMessage(message: message)
                   } else if (milliSeconds <= -100){
                   	//discarding the message if the delay is more than 100ms
                     let message = Message(timestamp: messagePop.timestamp, color: messagePop.color, discarded: true, completed: true)
-                    self.completedMessages.insert(message, at: 0)
+//                    self.completedMessages.insert(message, at: 0)
+                    self.completedCollectionView.addMessage(message: message)
                     self.upcomingCollectionView.removeMessage(message: message)
-
-                    self.updateMessage(message: message)
+//                    self.updateMessage(message: message)
                   }
               	}
-
-                // updating upcoming and completed views after updating upcoming and completed messages
-                //self.refreshUpcomingQueueView()
+                
                 self.refreshCompletedQueueView()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
       			.disposed(by: disposeBag)

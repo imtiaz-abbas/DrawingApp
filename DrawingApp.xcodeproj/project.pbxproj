@@ -95,16 +95,16 @@
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
 				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
-				B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
 				B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */,
+				1D0339A1228D815900B78EEA /* GameLoopHandler.swift */,
+				B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */,
 				B20E5977227C3A9000D53AA7 /* Info.plist */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 				B239F91C227EBCCA004EF513 /* Pencil.swift */,
 				B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */,
-				1D0339A1228D815900B78EEA /* GameLoopHandler.swift */,
 			);
 			path = DrawingApp;
 			sourceTree = "<group>";
