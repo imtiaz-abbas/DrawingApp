@@ -21,7 +21,7 @@ class ColorSelectorViewController: UIViewController {
     var pencils: Array<Pencil> = []
     weak var mainScreenController: MainScreenController?
     override func viewDidLoad() {
-//        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
         view.backgroundColor = .white
         view.sv(dialogView)
         dialogView.height(300)
