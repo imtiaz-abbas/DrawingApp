@@ -11,14 +11,22 @@ import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
   var item: ListItem!
+  var collectionView: UICollectionView!
   let contentContainer = UIView()
   let descriptionLabel = UILabel()
   var imageView: UIImageView!
   var image: UIImage!
   let imageContainer = UIView()
   let descriptionLabelContainer = UIView()
+  var isOpen: Bool = false
+  var frameWhileExpanding: CGRect!
   
   func setupView() {
+    self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+    let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+    gestureRecognizer.direction = [.up, .down]
+    self.addGestureRecognizer(gestureRecognizer)
+    
     self.contentView.sv(contentContainer)
     self.image = UIImage(named: item.imageName)
     if image != nil {
@@ -56,7 +64,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     imageContainer.height(50%)
     imageContainer.fillHorizontally()
     imageContainer.clipsToBounds = true
-    imageContainer.backgroundColor = item.color
+    imageContainer.backgroundColor = .white
     
     descriptionLabelContainer.fillHorizontally()
     descriptionLabelContainer.height(50%)
@@ -78,6 +86,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
   }
   
   func expand(bounds: CGRect) {
+    self.frameWhileExpanding = self.frame
+    self.isOpen = true
     self.superview?.bringSubviewToFront(self)
     UIView.animate(withDuration: 0.8,
                    delay: 0.0,
@@ -85,15 +95,22 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    initialSpringVelocity: 0.5,
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
+                    self.isSelected = true
                     self.frame = bounds
     }, completion: nil)
   }
   
   func collapse() {
-    var newFrame = self.frame;
-    newFrame.size.width = self.frame.width;
-    newFrame.size.height = 200;
-    self.frame = newFrame
+    UIView.animate(withDuration: 0.8,
+                   delay: 0.0,
+                   usingSpringWithDamping: 0.6,
+                   initialSpringVelocity: 0.5,
+                   options: UIView.AnimationOptions.curveEaseIn,
+                   animations: {
+                    self.isOpen = false
+                    self.isSelected = false
+                    self.frame = self.frameWhileExpanding
+    }, completion: nil)
   }
   
   func pressInAnimation() {
@@ -116,6 +133,22 @@ class ItemCollectionViewCell: UICollectionViewCell {
                     self.contentView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
     }, completion: nil)
   }
+  
+  
+  @objc func tapAction(sender: UITapGestureRecognizer){
+    if !self.isOpen {
+      self.expand(bounds: collectionView.bounds)
+      collectionView.isScrollEnabled = false
+    }
+  }
+  
+  @objc func swipeAction(sender: UISwipeGestureRecognizer){
+    if self.isOpen {
+      self.collapse()
+      collectionView.isScrollEnabled = true
+    }
+  }
+  
   
   func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage? {
     if image.size.height > image.size.width {

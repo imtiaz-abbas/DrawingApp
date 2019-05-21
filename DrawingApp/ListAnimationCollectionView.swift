@@ -14,9 +14,7 @@ import Stevia
 class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   var items: Array<ListItem> = []
   var collectionView: UICollectionView!
-  var selectedIndexPath: IndexPath!
   let screenSize = UIScreen.main.bounds
-  var dismissInProgress: Bool = false
   
   func setupView() {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -60,39 +58,12 @@ class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollect
   func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
     let cell = collectionView.cellForItem(at: indexPath) as! ItemCollectionViewCell
     cell.pressOutAnimation()
-    if cell.isSelected {
-//      collectionView.reloadItems(at: [indexPath])
-      cell.isSelected = false
-      self.dismissInProgress = true
-      self.selectedIndexPath = nil
-      collectionView.reloadData()
-      collectionView.isScrollEnabled = true
-      collectionView.deselectItem(at: indexPath, animated: true)
-    }
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell
-    cell?.collapse()
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if selectedIndexPath == indexPath {
-      return
-    } else if selectedIndexPath == nil && self.dismissInProgress {
-      self.dismissInProgress = false
-      return
-    }
-    let cell = collectionView.cellForItem(at: indexPath) as! ItemCollectionViewCell
-    self.selectedIndexPath = indexPath as IndexPath
-    cell.expand(bounds: collectionView.bounds)
-    collectionView.isScrollEnabled = false
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListAnimationCollectionView", for: indexPath) as! ItemCollectionViewCell
     cell.item = items[indexPath.row]
-    cell.isSelected = (selectedIndexPath == indexPath)
+    cell.collectionView = collectionView
     cell.setupView()
     return cell
   }
