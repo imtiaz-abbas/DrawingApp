@@ -30,11 +30,12 @@ class ListAnimationsVC: UIViewController {
     listAnimationCollectionView.height(screenSize.height)
     listAnimationCollectionView.width(screenSize.width)
 
-    itemsToAdd.append(ListItem(color: .red, description: "ONE", imageName: "one.jpg"))
-    itemsToAdd.append(ListItem(color: .blue, description: "TWO", imageName: "two.jpg"))
+    itemsToAdd.append(ListItem(color: .red, description: "When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all.", imageName: "one.jpg"))
+    itemsToAdd.append(ListItem(color: .blue, description: "I have an image view, declared programmatically, and I am setting its image, also programmatically. However, I find myself unable to set the ", imageName: "two.jpg"))
     itemsToAdd.append(ListItem(color: .green, description: "THREE", imageName: "three.jpg"))
     itemsToAdd.append(ListItem(color: .gray, description: "FOUR", imageName:  "four.jpg"))
     itemsToAdd.append(ListItem(color: .orange, description: "FIVE", imageName: "five.jpg"))
+    itemsToAdd.append(ListItem(color: .red, description: "SIX", imageName: "one.jpg"))
     listAnimationCollectionView.addItems(items: itemsToAdd)
   }
 

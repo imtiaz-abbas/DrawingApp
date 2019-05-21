@@ -21,7 +21,8 @@ class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollect
   func setupView() {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     layout.itemSize = CGSize(width: (self.widthConstraint?.constant ?? 100), height: 100)
-    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    layout.minimumLineSpacing = 20
     self.collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     sv(collectionView)
     collectionView.Top == safeAreaLayoutGuide.Top
@@ -48,27 +49,25 @@ class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollect
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: screenSize.width, height: 200)
+    return CGSize(width: screenSize.width - 40, height: 200)
   }
   
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    print("Highlight")
     let cell = collectionView.cellForItem(at: indexPath) as! ItemCollectionViewCell
     cell.pressInAnimation()
   }
   
   func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-    print("UnHighlight")
     let cell = collectionView.cellForItem(at: indexPath) as! ItemCollectionViewCell
     cell.pressOutAnimation()
     if cell.isSelected {
 //      collectionView.reloadItems(at: [indexPath])
-      collectionView.reloadData()
-      collectionView.isScrollEnabled = true
-      collectionView.deselectItem(at: indexPath, animated: true)
       cell.isSelected = false
       self.dismissInProgress = true
       self.selectedIndexPath = nil
+      collectionView.reloadData()
+      collectionView.isScrollEnabled = true
+      collectionView.deselectItem(at: indexPath, animated: true)
     }
   }
   

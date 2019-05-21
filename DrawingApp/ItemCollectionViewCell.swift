@@ -21,14 +21,18 @@ class ItemCollectionViewCell: UICollectionViewCell {
   func setupView() {
     self.contentView.sv(contentContainer)
     self.image = UIImage(named: item.imageName)
-    self.imageView = UIImageView(image: self.image)
-    
-    contentContainer.fillContainer(20)
+    if image != nil {
+      self.image = self.resizeImage(image: self.image!, newWidth: UIScreen.main.bounds.width, newHeight: UIScreen.main.bounds.height / 2)
+    }
+    self.imageView = UIImageView(image: image)
+    self.image.resizableImage(withCapInsets: safeAreaInsets, resizingMode: UIImage.ResizingMode.tile)
+    contentContainer.fillContainer()
     contentContainer.sv(imageContainer, descriptionLabelContainer)
     imageContainer.sv(imageView)
     descriptionLabelContainer.sv(descriptionLabel)
     setupStyles()
   }
+  
   
   func setupStyles() {
     contentView.layoutIfNeeded()
@@ -49,22 +53,21 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     
     
-    imageContainer.height(frame.height / 2)
-    print(" ========= IMAGE CONTAINER HEIGHT ", frame.height / 2)
+    imageContainer.height(50%)
     imageContainer.fillHorizontally()
     imageContainer.clipsToBounds = true
     imageContainer.backgroundColor = item.color
     
     descriptionLabelContainer.fillHorizontally()
-    descriptionLabelContainer.height(frame.height / 2)
-    descriptionLabelContainer.backgroundColor = UIColor.white
+    descriptionLabelContainer.height(50%)
     imageContainer.Top == 0
     descriptionLabelContainer.Top == imageContainer.Bottom
     descriptionLabel.text = item?.description
     descriptionLabel.Right == 20
     descriptionLabel.Top == 20
     descriptionLabel.Left == 20
-    descriptionLabel.numberOfLines = 3
+    descriptionLabel.Bottom == 20
+    descriptionLabel.numberOfLines = 0
     UIView.animate(withDuration: 0.3, animations: {
       self.contentView.layoutIfNeeded()
     })
@@ -84,7 +87,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    animations: {
                     self.frame = bounds
     }, completion: nil)
-    self.setupStyles()
   }
   
   func collapse() {
@@ -92,7 +94,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     newFrame.size.width = self.frame.width;
     newFrame.size.height = 200;
     self.frame = newFrame
-    self.setupStyles()
   }
   
   func pressInAnimation() {
@@ -116,4 +117,24 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }, completion: nil)
   }
   
+  func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage? {
+    if image.size.height > image.size.width {
+      let scale = newWidth / image.size.width
+      let newHeight = image.size.height * scale
+      UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+      image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+      let newImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      return newImage
+    } else {
+      let scale = newHeight / image.size.height
+      let newWidth = image.size.width * scale
+      UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+      image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+      let newImage = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      return newImage
+    }
+  }
 }
+
