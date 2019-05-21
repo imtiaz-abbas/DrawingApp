@@ -13,7 +13,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
   var item: ListItem!
   var collectionView: UICollectionView!
   let contentContainer = UIView()
-  let descriptionLabel = UILabel()
+  let descriptionLabel = UITextView()
   var imageView: UIImageView!
   var image: UIImage!
   let imageContainer = UIView()
@@ -22,6 +22,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
   var frameWhileExpanding: CGRect!
   
   func setupView() {
+    descriptionLabel.isScrollEnabled = false
+    descriptionLabel.isEditable = false
     self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
     let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
     gestureRecognizer.direction = [.up, .down]
@@ -41,25 +43,19 @@ class ItemCollectionViewCell: UICollectionViewCell {
     setupStyles()
   }
   
-  
   func setupStyles() {
     contentView.layoutIfNeeded()
     contentContainer.backgroundColor = .white
     contentContainer.centerHorizontally()
     contentContainer.centerVertically()
-    
     // corner radius
     contentContainer.layer.cornerRadius = 10
     contentContainer.layer.masksToBounds = true
-
-    
     // shadow
     contentView.layer.shadowColor = UIColor.black.cgColor
     contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
     contentView.layer.shadowOpacity = 0.7
     contentView.layer.shadowRadius = 4.0
-    
-    
     
     imageContainer.height(50%)
     imageContainer.fillHorizontally()
@@ -75,14 +71,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
     descriptionLabel.Top == 20
     descriptionLabel.Left == 20
     descriptionLabel.Bottom == 20
-    descriptionLabel.numberOfLines = 0
+//    descriptionLabel.numberOfLines = 0
     UIView.animate(withDuration: 0.3, animations: {
       self.contentView.layoutIfNeeded()
     })
-//    self.layoutIfNeeded()
-//    self.setNeedsDisplay()
-//    self.setNeedsLayout()
-//    self.setNeedsFocusUpdate()
   }
   
   func expand(bounds: CGRect) {
@@ -96,7 +88,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
                     self.isSelected = true
+                    self.descriptionLabel.isScrollEnabled = true
                     self.frame = bounds
+                    self.contentContainer.frame.size.height = bounds.size.height
+                    self.contentContainer.frame.size.width = bounds.size.width
+//                    self.imageContainer.frame.size.height = bounds.size.height / 2
+//                    self.imageContainer.frame.size.width = bounds.size.width
+//                    self.descriptionLabelContainer.frame.size.height = bounds.size.height / 2
+//                    self.descriptionLabelContainer.frame.size.width = bounds.size.width
     }, completion: nil)
   }
   
@@ -107,6 +106,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    initialSpringVelocity: 0.5,
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
+                    self.descriptionLabel.isScrollEnabled = false
                     self.isOpen = false
                     self.isSelected = false
                     self.frame = self.frameWhileExpanding
@@ -148,7 +148,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
       collectionView.isScrollEnabled = true
     }
   }
-  
   
   func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage? {
     if image.size.height > image.size.width {
