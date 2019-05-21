@@ -36,7 +36,7 @@ class ListAnimationsVC: UIViewController {
     listAnimationCollectionView.width(screenSize.width)
     var listItems: Array<ListItem> = []
     
-    makeGetRequest(url: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2018-12-26&end_date=2019-01-06").subscribe(onNext: { response in
+    makeGetRequest(url: "https://api.nasa.gov/planetary/apod?api_key=YPnh5fLrnPlqbVeCN86tba4qEEqrh9DrlLgkphhS&start_date=2018-12-26&end_date=2019-01-06").subscribe(onNext: { response in
             if (response.result.value != nil) {
               let swiftyJsonVar = JSON(response.result.value!)
               for item in swiftyJsonVar.arrayValue {
