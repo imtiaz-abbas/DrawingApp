@@ -99,6 +99,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
                     self.frame = bounds
                     self.contentContainer.frame.size.height = bounds.size.height
                     self.contentContainer.frame.size.width = bounds.size.width
+                    self.contentContainer.layer.cornerRadius = 0
 //                    self.imageContainer.frame.size.height = bounds.size.height / 2
 //                    self.imageContainer.frame.size.width = bounds.size.width
 //                    self.descriptionLabelContainer.frame.size.height = bounds.size.height / 2
@@ -120,6 +121,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
                     self.frame = self.frameWhileExpanding
                     self.contentContainer.frame.size.height = self.frameWhileExpanding.size.height
                     self.contentContainer.frame.size.width = self.frameWhileExpanding.size.width
+                    self.contentContainer.layer.cornerRadius = 10
     }, completion: nil)
   }
   
