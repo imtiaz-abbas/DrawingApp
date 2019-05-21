@@ -17,11 +17,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
   var imageView: UIImageView!
   var image: UIImage!
   let imageContainer = UIView()
+  var closeIcon = UIButton(type:UIButton.ButtonType.contactAdd)
   let descriptionLabelContainer = UIView()
   var isOpen: Bool = false
   var frameWhileExpanding: CGRect!
   
   func setupView() {
+    closeIcon.isHidden = true
+    closeIcon.tintColor = .black
+    closeIcon.addTarget(self, action: #selector(swipeAction), for:.touchUpInside)
     descriptionLabel.isScrollEnabled = false
     descriptionLabel.isEditable = false
     self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
@@ -38,7 +42,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     self.image.resizableImage(withCapInsets: safeAreaInsets, resizingMode: UIImage.ResizingMode.tile)
     contentContainer.fillContainer()
     contentContainer.sv(imageContainer, descriptionLabelContainer)
-    imageContainer.sv(imageView)
+    imageContainer.sv(imageView, closeIcon)
+    closeIcon.Top == 20
+    closeIcon.Right == 20
     descriptionLabelContainer.sv(descriptionLabel)
     setupStyles()
   }
@@ -79,6 +85,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
   
   func expand(bounds: CGRect) {
     self.frameWhileExpanding = self.frame
+    closeIcon.isHidden = false
     self.isOpen = true
     self.superview?.bringSubviewToFront(self)
     UIView.animate(withDuration: 0.8,
@@ -100,6 +107,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
   }
   
   func collapse() {
+    closeIcon.isHidden = true
     UIView.animate(withDuration: 0.8,
                    delay: 0.0,
                    usingSpringWithDamping: 0.6,
@@ -110,6 +118,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
                     self.isOpen = false
                     self.isSelected = false
                     self.frame = self.frameWhileExpanding
+                    self.contentContainer.frame.size.height = self.frameWhileExpanding.size.height
+                    self.contentContainer.frame.size.width = self.frameWhileExpanding.size.width
     }, completion: nil)
   }
   
