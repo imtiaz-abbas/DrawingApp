@@ -13,7 +13,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
   var item: ListItem!
   var collectionView: UICollectionView!
   let contentContainer = UIView()
-  let descriptionLabel = UITextView()
+  let descriptionLabel = UILabel()
   var imageView: UIImageView!
   var image: UIImage!
   let imageContainer = UIView()
@@ -26,11 +26,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     closeIcon.isHidden = true
     closeIcon.tintColor = .black
     closeIcon.addTarget(self, action: #selector(swipeAction), for:.touchUpInside)
-    descriptionLabel.isScrollEnabled = false
-    descriptionLabel.isEditable = false
     self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
     let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
-    gestureRecognizer.direction = [.up, .down]
+    gestureRecognizer.direction = [.down]
     self.addGestureRecognizer(gestureRecognizer)
     
     self.contentView.sv(contentContainer)
@@ -39,12 +37,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
       self.image = self.resizeImage(image: self.image!, newWidth: UIScreen.main.bounds.width, newHeight: UIScreen.main.bounds.height / 2)
     }
     self.imageView = UIImageView(image: image)
-    self.image.resizableImage(withCapInsets: safeAreaInsets, resizingMode: UIImage.ResizingMode.tile)
     contentContainer.fillContainer()
     contentContainer.sv(imageContainer, descriptionLabelContainer)
     imageContainer.sv(imageView, closeIcon)
     closeIcon.Top == 20
     closeIcon.Right == 20
+    self.imageView.contentMode = .scaleAspectFit
     descriptionLabelContainer.sv(descriptionLabel)
     setupStyles()
   }
@@ -77,7 +75,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     descriptionLabel.Top == 20
     descriptionLabel.Left == 20
     descriptionLabel.Bottom == 20
-//    descriptionLabel.numberOfLines = 0
+    descriptionLabel.numberOfLines = 0
     UIView.animate(withDuration: 0.3, animations: {
       self.contentView.layoutIfNeeded()
     })
@@ -95,15 +93,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
                     self.isSelected = true
-                    self.descriptionLabel.isScrollEnabled = true
                     self.frame = bounds
                     self.contentContainer.frame.size.height = bounds.size.height
                     self.contentContainer.frame.size.width = bounds.size.width
                     self.contentContainer.layer.cornerRadius = 0
-//                    self.imageContainer.frame.size.height = bounds.size.height / 2
-//                    self.imageContainer.frame.size.width = bounds.size.width
-//                    self.descriptionLabelContainer.frame.size.height = bounds.size.height / 2
-//                    self.descriptionLabelContainer.frame.size.width = bounds.size.width
     }, completion: nil)
   }
   
@@ -115,7 +108,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    initialSpringVelocity: 0.5,
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
-                    self.descriptionLabel.isScrollEnabled = false
                     self.isOpen = false
                     self.isSelected = false
                     self.frame = self.frameWhileExpanding
