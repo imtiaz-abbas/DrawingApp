@@ -14,10 +14,13 @@
 		B20E5976227C3A9000D53AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */; };
 		B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */; };
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
+		B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21593672292D58800C101CB /* ItemCollectionViewCell.swift */; };
 		B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */; };
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
+		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
+		B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */; };
 		B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */; };
 		D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */; };
 /* End PBXBuildFile section */
@@ -35,10 +38,13 @@
 		B20E5977227C3A9000D53AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		B20E5981227C4F5D00D53AA7 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		B21593672292D58800C101CB /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScreenController.swift; sourceTree = "<group>"; };
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
+		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
+		B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationCollectionView.swift; sourceTree = "<group>"; };
 		B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,11 +100,14 @@
 			children = (
 				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
-				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
+				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
+				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
+				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
 				B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */,
 				1D0339A1228D815900B78EEA /* GameLoopHandler.swift */,
 				B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */,
+				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
 				B20E5977227C3A9000D53AA7 /* Info.plist */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
@@ -236,6 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
+				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
+				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
 				B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */,
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
@@ -244,6 +255,7 @@
 				B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */,
 				B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */,
 				1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */,
+				B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

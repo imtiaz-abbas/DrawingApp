@@ -51,7 +51,7 @@ class GameLoopVC : UIViewController {
 
       	currentTimeView.centerHorizontally()
 				currentTimeView.Top == view.Top + 40
-				updateCurrentTime()
+//        updateCurrentTime()
 
         upcomingCollectionView.width(screenSize.width / 2)
         upcomingCollectionView.height(screenSize.height)
@@ -70,11 +70,11 @@ class GameLoopVC : UIViewController {
         completedCollectionView.setupView()
   	}
 
-  	private func updateCurrentTime() {
-    	Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-      	self.currentTimeView.text = self.dateFormatter.string(from: Date())
-    	}
-  	}
+//    private func updateCurrentTime() {
+//      Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+//        self.currentTimeView.text = self.dateFormatter.string(from: Date())
+//      }
+//    }
 
     func refreshCompletedQueueView() {
         for subView in completedQueueView.subviews {
