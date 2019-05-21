@@ -8,13 +8,14 @@
 
 import Stevia
 import UIKit
+import SDWebImage
 
 class ItemCollectionViewCell: UICollectionViewCell {
   var item: ListItem!
   var collectionView: UICollectionView!
   let contentContainer = UIView()
   let descriptionLabel = UILabel()
-  var imageView: UIImageView!
+  var imageView = UIImageView()
   var image: UIImage!
   let imageContainer = UIView()
   var closeIcon = UIButton(type:UIButton.ButtonType.contactAdd)
@@ -32,11 +33,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
     self.addGestureRecognizer(gestureRecognizer)
     
     self.contentView.sv(contentContainer)
-    self.image = UIImage()
-    if image != nil {
-      self.image = self.resizeImage(image: self.image!, newWidth: UIScreen.main.bounds.width, newHeight: UIScreen.main.bounds.height / 2)
+    // getting image from url
+    if let url = URL(string: self.item.imageUrl) {
+      self.imageView.sd_setImage(with: url, completed: nil)
     }
-    self.imageView = UIImageView(image: image)
     contentContainer.fillContainer()
     contentContainer.sv(imageContainer, descriptionLabelContainer)
     imageContainer.sv(imageView, closeIcon)
