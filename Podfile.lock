@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.2)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -7,28 +8,35 @@ PODS:
   - RxSwift (5.0.0)
   - SteviaLayout (4.5.0)
   - SwiftLint (0.31.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - RxCocoa
   - RxSwift
   - SteviaLayout
   - SwiftLint
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - RxCocoa
     - RxRelay
     - RxSwift
     - SteviaLayout
     - SwiftLint
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SteviaLayout: aa64a62810544348c9e328a6521cb9160fa82ec6
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 5ec4d84969ab7f9ca1d4c2092d936aec4c6796af
+PODFILE CHECKSUM: 4bbda4662c2054cc633ac2e6d410a3ee6be1b01a
 
 COCOAPODS: 1.6.1

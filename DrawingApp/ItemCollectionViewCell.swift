@@ -32,7 +32,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     self.addGestureRecognizer(gestureRecognizer)
     
     self.contentView.sv(contentContainer)
-    self.image = UIImage(named: item.imageName)
+    self.image = UIImage()
     if image != nil {
       self.image = self.resizeImage(image: self.image!, newWidth: UIScreen.main.bounds.width, newHeight: UIScreen.main.bounds.height / 2)
     }

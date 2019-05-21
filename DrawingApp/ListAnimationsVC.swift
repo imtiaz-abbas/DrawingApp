@@ -8,12 +8,16 @@
 
 import UIKit
 import Stevia
+import Alamofire
+import SwiftyJSON
 
 
 struct ListItem {
   public var color: UIColor = UIColor.black
   public var description: String = ""
-  public var imageName: String = ""
+  public var imageUrl: String = ""
+  public var title: String = ""
+  public var dateString: String = ""
 }
 
 class ListAnimationsVC: UIViewController {
@@ -29,18 +33,25 @@ class ListAnimationsVC: UIViewController {
     self.view.sv(listAnimationCollectionView)
     listAnimationCollectionView.height(screenSize.height)
     listAnimationCollectionView.width(screenSize.width)
-
-    itemsToAdd.append(ListItem(color: .red, description: "When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all.When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all.When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all. subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all.When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIView.AutoresizingMask using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all.", imageName: "one.jpg"))
-    itemsToAdd.append(ListItem(color: .blue, description: "I have an image view, declared programmatically, and I am setting its image, also programmatically. However, I find myself unable to set the ", imageName: "two.jpg"))
-    itemsToAdd.append(ListItem(color: .green, description: "THREE", imageName: "three.jpg"))
-    itemsToAdd.append(ListItem(color: .gray, description: "FOUR", imageName:  "four.jpg"))
-    itemsToAdd.append(ListItem(color: .orange, description: "FIVE", imageName: "five.jpg"))
-    itemsToAdd.append(ListItem(color: .red, description: "SIX", imageName: "one.jpg"))
-    listAnimationCollectionView.addItems(items: itemsToAdd)
+    var listItems: Array<ListItem> = []
+    Alamofire.request("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2018-12-26&end_date=2019-01-06").responseJSON { response in
+      if (response.result.value != nil) {
+        let swiftyJsonVar = JSON(response.result.value!)
+        for item in swiftyJsonVar.arrayValue {
+          let description = item["explanation"].stringValue
+          let title = item["title"].stringValue
+          let date = item["date"].stringValue
+          let imageUrl = item["url"].stringValue
+          let listItem = ListItem(color: .white, description: description, imageUrl: imageUrl, title: title, dateString: date)
+          listItems.append(listItem)
+        }
+        self.listAnimationCollectionView.addItems(items: listItems)
+        self.listAnimationCollectionView.setupView()
+      }
+    }
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    listAnimationCollectionView.setupView()
   }
 }

@@ -34,11 +34,12 @@ class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollect
   }
   
   func addItems(items: Array<ListItem>) {
+    print("adding items ========")
     self.items = items
     for (_, _) in items.enumerated() {
-      self.collectionView?.performBatchUpdates({
+//      self.collectionView?.performBatchUpdates({
         self.collectionView?.insertItems(at: [IndexPath(item: 0, section: 0)])
-      }, completion:nil)
+//      }, completion:nil)
     }
   }
   
