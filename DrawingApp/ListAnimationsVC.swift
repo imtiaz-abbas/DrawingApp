@@ -34,16 +34,18 @@ class ListAnimationsVC: UIViewController {
   }()
   
   func createData(listItems: Array<ListItem>) {
+    
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
-    guard let picturesEntity = NSEntityDescription.entity(forEntityName: "AstronomyPictures", in: managedContext) else { return }
+    
     for item in listItems {
-      let picture = NSManagedObject(entity: picturesEntity, insertInto: managedContext)
-      picture.setValue(item.description, forKey: "desc")
-      picture.setValue(item.imageUrl, forKey: "image")
-      picture.setValue(item.title, forKey: "title")
-      picture.setValue(item.dateString, forKey: "date")
+      let picture = Picture(context: managedContext)
+      picture.desc = item.description
+      picture.date = item.dateString
+      picture.image = item.imageUrl
+      picture.title = item.title
     }
+    
     do {
       try managedContext.save()
     } catch let error as NSError {
@@ -54,17 +56,21 @@ class ListAnimationsVC: UIViewController {
   func retrieveDataFromStorage() -> Array<ListItem>{
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
     let managedContext = appDelegate.persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AstronomyPictures")
     var listItemsFromStorage: Array<ListItem> = []
+    
     do {
-      let result = try managedContext.fetch(fetchRequest)
-      for data in result as! [NSManagedObject] {
-        listItemsFromStorage.append(ListItem(color: .white, description: data.value(forKey: "desc") as! String, imageUrl: data.value(forKey: "image") as! String, title: data.value(forKey: "title") as! String, dateString: data.value(forKey: "date") as! String))
+      guard let pictures = try managedContext.fetch(Picture.fetchRequest()) as? [Picture] else {
+        return []
       }
+      
+      for picture in pictures {
+        listItemsFromStorage.append(ListItem(color: .white, description: picture.desc as! String, imageUrl: picture.image as! String, title: picture.title as! String, dateString: picture.date as! String))
+      }
+      
+      listItemsFromStorage.sort(by: { self.dateFormatter.date(from: $0.dateString)!.compare(self.dateFormatter.date(from: $1.dateString)!) == .orderedDescending })
     } catch {
-      print(" ========= Error while fetching pictures from core data")
+      print(" ========== Error while fetching pictures from core data")
     }
-    listItemsFromStorage.sort(by: { self.dateFormatter.date(from: $0.dateString)!.compare(self.dateFormatter.date(from: $1.dateString)!) == .orderedDescending })
     return listItemsFromStorage
   }
 
@@ -81,7 +87,7 @@ class ListAnimationsVC: UIViewController {
       self.listAnimationCollectionView.addItems(items: listItems)
       self.listAnimationCollectionView.setupView()
     } else {
-      makeGetRequest(url: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2019-05-11&end_date=2019-05-21").subscribe(onNext: { response in
+      _ = makeGetRequest(url: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2019-05-11&end_date=2019-05-21").subscribe(onNext: { response in
         if (response.result.value != nil) {
           let swiftyJsonVar = JSON(response.result.value!)
           for item in swiftyJsonVar.arrayValue {
