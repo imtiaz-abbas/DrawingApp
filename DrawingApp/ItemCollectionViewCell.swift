@@ -19,6 +19,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
   let imageView = UIImageView()
   
   let imageContainer = UIView()
+  let dateLabel = UILabel()
   let closeIcon = UIButton(type:UIButton.ButtonType.contactAdd)
   let descriptionLabelContainer = UIView()
   
@@ -50,7 +51,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
     descriptionLabelContainer.fillHorizontally()
     descriptionLabelContainer.centerHorizontally()
   
-    imageContainer.sv(imageView, closeIcon)
+    imageContainer.sv(imageView, dateLabel, closeIcon)
+    dateLabel.Top == 20
+    dateLabel.Left == 20
+    dateLabel.textColor = UIColor.white
+    
     imageView.fillContainer()
     imageView.contentMode = .scaleAspectFill
     
@@ -75,6 +80,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     gestureRecognizer.direction = [.down]
     self.addGestureRecognizer(gestureRecognizer)
     
+    self.dateLabel.text = item.dateString
+    
     // getting image from url
     if let url = URL(string: self.item.imageUrl) {
       self.imageView.sd_setImage(with: url, completed: nil)
@@ -95,8 +102,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    animations: {
                     self.isSelected = true
                     self.frame = bounds
-                    //self.contentContainer.frame.size.height = bounds.size.height
-                    //self.contentContainer.frame.size.width = bounds.size.width
                     self.contentContainer.layer.cornerRadius = 0
                     self.layoutIfNeeded()
     }, completion: {_ in
@@ -114,8 +119,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
                    animations: {
                     self.isSelected = false
                     self.frame = self.frameWhileExpanding
-//                    self.contentContainer.frame.size.height = self.frameWhileExpanding.size.height
-//                    self.contentContainer.frame.size.width = self.frameWhileExpanding.size.width
                     self.contentContainer.layer.cornerRadius = 10
                     self.layoutIfNeeded()
     }, completion: { _ in
@@ -164,25 +167,5 @@ class ItemCollectionViewCell: UICollectionViewCell {
       collectionView.isScrollEnabled = true
     }
   }
-//
-//  func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage? {
-//    if image.size.height > image.size.width {
-//      let scale = newWidth / image.size.width
-//      let newHeight = image.size.height * scale
-//      UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-//      image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-//      let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//      UIGraphicsEndImageContext()
-//      return newImage
-//    } else {
-//      let scale = newHeight / image.size.height
-//      let newWidth = image.size.width * scale
-//      UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-//      image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
-//      let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//      UIGraphicsEndImageContext()
-//      return newImage
-//    }
-//  }
 }
 
