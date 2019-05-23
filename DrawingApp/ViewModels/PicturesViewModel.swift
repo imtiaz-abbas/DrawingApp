@@ -11,7 +11,8 @@ import RxSwift
 import SwiftyJSON
 
 class PicturesViewModel {
-  
+
+  let apodAPI = APODApi()
   weak var listAnimationVCDelegate: ListAnimationsVC?
   let disposeBag = DisposeBag()
   
@@ -22,6 +23,27 @@ class PicturesViewModel {
   }()
   
   func getAstronomyPictures() {
+    apodAPI.getAstronomyPictures()
+      .subscribe(onNext: { result in
+        print("Result Status \(result.status)")
+        switch result.status {
+        case .success:
+          print("\(result.value)")
+        case .failure:
+					print("\(result.errorMessage)")
+        case .loading:
+					print("Loading...")
+        @unknown default:
+					break
+        }
+      }, onError: { error in
+
+      }, onCompleted: {
+
+      }) {
+
+    }
+
     var listItems: Array<ListItem> = PicturesModel.getPicturesFromStorage()
     
     if (listItems.count > 0) {

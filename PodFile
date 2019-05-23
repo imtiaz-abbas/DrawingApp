@@ -4,6 +4,7 @@ target 'DrawingApp' do
     pod 'SteviaLayout'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'RxAlamofire'
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'SDWebImage'

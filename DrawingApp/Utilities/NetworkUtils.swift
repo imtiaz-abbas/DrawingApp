@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 import Alamofire
 
-
 class NetworkUtils {
   static let shared = NetworkUtils()
   init(){}

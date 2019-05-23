@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0339A1228D815900B78EEA /* GameLoopHandler.swift */; };
+		1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992B2296760F00FC04F3 /* APODApi.swift */; };
+		1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992D229677DF00FC04F3 /* APODPicture.swift */; };
+		1D1799302296886D00FC04F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992F2296886D00FC04F3 /* Result.swift */; };
 		B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */; };
 		B20E5971227C3A8F00D53AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E596F227C3A8F00D53AA7 /* Main.storyboard */; };
 		B20E5973227C3A9000D53AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E5972227C3A9000D53AA7 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		1D0339A1228D815900B78EEA /* GameLoopHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopHandler.swift; sourceTree = "<group>"; };
+		1D17992B2296760F00FC04F3 /* APODApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODApi.swift; sourceTree = "<group>"; };
+		1D17992D229677DF00FC04F3 /* APODPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODPicture.swift; sourceTree = "<group>"; };
+		1D17992F2296886D00FC04F3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.release.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.release.xcconfig"; sourceTree = "<group>"; };
 		AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.debug.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				B2CE74B3229583840085FF2E /* PicturesViewModel.swift */,
+				1D17992B2296760F00FC04F3 /* APODApi.swift */,
+				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B2CE74B122957D790085FF2E /* NetworkUtils.swift */,
+				1D17992F2296886D00FC04F3 /* Result.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -263,6 +272,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -275,6 +285,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -320,6 +331,7 @@
 				B2D2E16022953BE2005F57CE /* Picture+CoreDataProperties.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
+				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
 				B2D2E15F22953BE2005F57CE /* Picture+CoreDataClass.swift in Sources */,
@@ -333,6 +345,8 @@
 				B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */,
 				B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */,
 				1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */,
+				1D1799302296886D00FC04F3 /* Result.swift in Sources */,
+				1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */,
 				B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

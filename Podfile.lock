@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.8.2)
+  - RxAlamofire (5.0.0):
+    - RxAlamofire/Core (= 5.0.0)
+  - RxAlamofire/Core (5.0.0):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 5.0)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -15,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - RxAlamofire
   - RxCocoa
   - RxSwift
   - SDWebImage
@@ -25,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -35,6 +42,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  RxAlamofire: e7875a012aff55345672d0f70a2a9cd6aeb0f211
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
@@ -43,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 25cd0780bc318bee36bd170f095cd57d05545f57
+PODFILE CHECKSUM: 2d8757f11774c2081569e702cb56e66b16f1e112
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.0.beta.2
