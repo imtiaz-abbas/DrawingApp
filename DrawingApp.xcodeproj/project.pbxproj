@@ -21,6 +21,10 @@
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
 		B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */; };
+		B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */; };
+		B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B122957D790085FF2E /* NetworkUtils.swift */; };
+		B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B3229583840085FF2E /* PicturesViewModel.swift */; };
+		B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74BD22966D590085FF2E /* PicturesModel.swift */; };
 		B2D2E15F22953BE2005F57CE /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */; };
 		B2D2E16022953BE2005F57CE /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */; };
 		B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */; };
@@ -47,6 +51,10 @@
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
 		B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationCollectionView.swift; sourceTree = "<group>"; };
+		B2CE74AA22957AAD0085FF2E /* AstronomyPictures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AstronomyPictures.xcdatamodel; sourceTree = "<group>"; };
+		B2CE74B122957D790085FF2E /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		B2CE74B3229583840085FF2E /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
+		B2CE74BD22966D590085FF2E /* PicturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesModel.swift; sourceTree = "<group>"; };
 		B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopVC.swift; sourceTree = "<group>"; };
@@ -102,26 +110,78 @@
 		B20E596A227C3A8F00D53AA7 /* DrawingApp */ = {
 			isa = PBXGroup;
 			children = (
-				B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */,
-				B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */,
-				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
-				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
+				B2CE74BC22966D0D0085FF2E /* Utilities */,
+				B2CE74B92296593A0085FF2E /* ViewModels */,
+				B2CE74B8229646620085FF2E /* Resources */,
+				B2CE74B72296464E0085FF2E /* AppDelegate */,
+				B2CE74AF22957BF50085FF2E /* Models */,
+				B2CE74AE22957BEE0085FF2E /* Views */,
 				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
 				B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */,
 				1D0339A1228D815900B78EEA /* GameLoopHandler.swift */,
 				B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */,
-				B20E5977227C3A9000D53AA7 /* Info.plist */,
-				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
-				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
-				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
-				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
-				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B20E597F227C3B8B00D53AA7 /* MainScreenController.swift */,
 				B239F91C227EBCCA004EF513 /* Pencil.swift */,
 				B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */,
 			);
 			path = DrawingApp;
+			sourceTree = "<group>";
+		};
+		B2CE74AE22957BEE0085FF2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
+				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
+				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
+				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
+				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B2CE74AF22957BF50085FF2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */,
+				B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */,
+				B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */,
+				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B2CE74B72296464E0085FF2E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B2CE74B8229646620085FF2E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
+				B20E5977227C3A9000D53AA7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B2CE74B92296593A0085FF2E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B2CE74B3229583840085FF2E /* PicturesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B2CE74BC22966D0D0085FF2E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B2CE74B122957D790085FF2E /* NetworkUtils.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,13 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D2E16022953BE2005F57CE /* Picture+CoreDataProperties.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
+				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
+				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
 				B2D2E15F22953BE2005F57CE /* Picture+CoreDataClass.swift in Sources */,
 				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
 				B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */,
+				B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */,
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
 				B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */,
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
@@ -420,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8R9LM7883;
-				INFOPLIST_FILE = DrawingApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DrawingApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8R9LM7883;
-				INFOPLIST_FILE = DrawingApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DrawingApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +537,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B2CE74AA22957AAD0085FF2E /* AstronomyPictures.xcdatamodel */,
+			);
+			currentVersion = B2CE74AA22957AAD0085FF2E /* AstronomyPictures.xcdatamodel */;
+			path = AstronomyPictures.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B20E5960227C3A8F00D53AA7 /* Project object */;
 }
