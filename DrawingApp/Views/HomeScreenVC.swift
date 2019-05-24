@@ -22,7 +22,6 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     tableView.height(UIScreen.main.bounds.size.height)
     tableView.width(UIScreen.main.bounds.size.width)
     
-    // Register the table view cell class and its reuse id
     self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     tableView.delegate = self
     tableView.dataSource = self
@@ -33,11 +32,8 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! UITableViewCell
-    
     cell.textLabel?.text = self.items[indexPath.row]
-    
     return cell
   }
   
@@ -49,6 +45,8 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(GameLoopVC(), animated: true)
     } else if (self.items[indexPath.row] == "APOD") {
       navigationController?.pushViewController(ListAnimationsVC(), animated: true)
+    } else if (self.items[indexPath.row] == "PanGesture") {
+      navigationController?.pushViewController(PanGestureVC(), animated: true)
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
