@@ -16,7 +16,7 @@ class APODApi {
 
   func getAstronomyPictures() -> Observable<Result<[APODPicture]>> {
 
-    let url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2019-05-11&end_date=2019-05-21"
+    let url = "https://api.nasa.gov/planetary/apod?api_key=YPnh5fLrnPlqbVeCN86tba4qEEqrh9DrlLgkphhS&start_date=2019-05-11&end_date=2019-05-21"
     return RxAlamofire.requestJSON(.get, url)
       .map({ r, json in
         let list = JSON(json)
@@ -32,7 +32,7 @@ class APODApi {
 
         return Result.success(value: apodList)
       })
-    	.catchErrorJustReturn(Result<[APODPicture]>.failure(errorMessage: "Errored"))
+    	.catchErrorJustReturn(Result<[APODPicture]>.failure(error: "Errored"))
   }
 
 }

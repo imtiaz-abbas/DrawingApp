@@ -22,14 +22,14 @@
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
+		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
+		B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
 		B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */; };
 		B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */; };
 		B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B122957D790085FF2E /* NetworkUtils.swift */; };
 		B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B3229583840085FF2E /* PicturesViewModel.swift */; };
 		B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74BD22966D590085FF2E /* PicturesModel.swift */; };
-		B2D2E15F22953BE2005F57CE /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */; };
-		B2D2E16022953BE2005F57CE /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */; };
 		B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */; };
 		D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */; };
 /* End PBXBuildFile section */
@@ -55,14 +55,14 @@
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
+		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
 		B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationCollectionView.swift; sourceTree = "<group>"; };
 		B2CE74AA22957AAD0085FF2E /* AstronomyPictures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AstronomyPictures.xcdatamodel; sourceTree = "<group>"; };
 		B2CE74B122957D790085FF2E /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		B2CE74B3229583840085FF2E /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
 		B2CE74BD22966D590085FF2E /* PicturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesModel.swift; sourceTree = "<group>"; };
-		B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,11 +116,11 @@
 		B20E596A227C3A8F00D53AA7 /* DrawingApp */ = {
 			isa = PBXGroup;
 			children = (
-				B2CE74BC22966D0D0085FF2E /* Utilities */,
-				B2CE74B92296593A0085FF2E /* ViewModels */,
-				B2CE74B8229646620085FF2E /* Resources */,
 				B2CE74B72296464E0085FF2E /* AppDelegate */,
 				B2CE74AF22957BF50085FF2E /* Models */,
+				B2CE74B8229646620085FF2E /* Resources */,
+				B2CE74BC22966D0D0085FF2E /* Utilities */,
+				B2CE74B92296593A0085FF2E /* ViewModels */,
 				B2CE74AE22957BEE0085FF2E /* Views */,
 				B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */,
 				B20E5981227C4F5D00D53AA7 /* CanvasView.swift */,
@@ -137,11 +137,11 @@
 		B2CE74AE22957BEE0085FF2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
 				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
-				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
-				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
+				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
+				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
+				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 		B2CE74AF22957BF50085FF2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */,
+				B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */,
 				B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */,
-				B2D2E15D22953BE2005F57CE /* Picture+CoreDataClass.swift */,
-				B2D2E15E22953BE2005F57CE /* Picture+CoreDataProperties.swift */,
 				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
 			);
 			path = Models;
@@ -177,9 +177,9 @@
 		B2CE74B92296593A0085FF2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B2CE74B3229583840085FF2E /* PicturesViewModel.swift */,
 				1D17992B2296760F00FC04F3 /* APODApi.swift */,
 				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
+				B2CE74B3229583840085FF2E /* PicturesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -327,14 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */,
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
-				B2D2E16022953BE2005F57CE /* Picture+CoreDataProperties.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
-				B2D2E15F22953BE2005F57CE /* Picture+CoreDataClass.swift in Sources */,
 				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
 				B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */,
@@ -347,6 +346,7 @@
 				1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */,
 				1D1799302296886D00FC04F3 /* Result.swift in Sources */,
 				1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */,
+				B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */,
 				B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

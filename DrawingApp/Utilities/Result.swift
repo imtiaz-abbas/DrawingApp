@@ -8,26 +8,11 @@
 
 import Foundation
 
-enum Status {
-  case success
-  case failure
+enum Result<T> {
+  case success(value: T)
+  case failure(error: String)
   case loading
 }
 
-struct Result<T> {
-  var errorMessage: String?
-  var value: T?
-  var status: Status = Status.loading
+typealias DataResult<T> = Result<T>
 
-  static func loading() -> Result<T> {
-    return Result(errorMessage: nil, value: nil, status: .loading)
-  }
-
-  static func success(value: T) -> Result<T> {
-    return Result(errorMessage: "", value: value, status: .success)
-  }
-
-  static func failure(errorMessage: String) -> Result<T> {
-    return Result(errorMessage: errorMessage, value: nil, status: .failure)
-  }
-}

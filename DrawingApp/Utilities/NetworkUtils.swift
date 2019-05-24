@@ -32,22 +32,4 @@ class NetworkUtils {
       })
     }
   }
-  
-  
-  
-  //    Alamofire.request("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2018-12-26&end_date=2019-01-06").responseJSON { response in
-  //      if (response.result.value != nil) {
-  //        let swiftyJsonVar = JSON(response.result.value!)
-  //        for item in swiftyJsonVar.arrayValue {
-  //          let description = item["explanation"].stringValue
-  //          let title = item["title"].stringValue
-  //          let date = item["date"].stringValue
-  //          let imageUrl = item["url"].stringValue
-  //          let listItem = ListItem(color: .white, description: description, imageUrl: imageUrl, title: title, dateString: date)
-  //          listItems.append(listItem)
-  //        }
-  //        self.listAnimationCollectionView.addItems(items: listItems)
-  //        self.listAnimationCollectionView.setupView()
-  //      }
-  //    }
 }

@@ -12,7 +12,7 @@ import UIKit
 import Stevia
 
 class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-  var items: Array<ListItem> = []
+  var items: Array<APODPicture> = []
   var collectionView: UICollectionView!
   let screenSize = UIScreen.main.bounds
   
@@ -33,13 +33,19 @@ class ListAnimationCollectionView: UIView, UICollectionViewDataSource, UICollect
     self.collectionView.allowsSelection = true
   }
   
-  func addItems(items: Array<ListItem>) {
-    self.items = items
-    for (_, _) in items.enumerated() {
+  func addItems(items: Array<APODPicture>) {
+    for (_, item) in items.enumerated() {
       self.collectionView?.performBatchUpdates({
-        self.collectionView?.insertItems(at: [IndexPath(item: 0, section: 0)])
-      }, completion:nil)
+        if !(self.items.map({ (pic) -> String in
+          return pic.date ?? ""
+        }).contains(item.date)) {
+          let indexPath = IndexPath(row: self.items.count, section: 0)
+          self.items.append(item)
+          self.collectionView?.insertItems(at: [indexPath])
+        }
+      }, completion: nil)
     }
+    self.collectionView?.reloadData()
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

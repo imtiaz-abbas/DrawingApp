@@ -12,7 +12,7 @@ import SDWebImage
 
 class ItemCollectionViewCell: UICollectionViewCell {
   
-  var item: ListItem!
+  var item: APODPicture!
   var collectionView: UICollectionView!
   let contentContainer = UIView()
   let descriptionLabel = UILabel()
@@ -80,14 +80,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
     gestureRecognizer.direction = [.down]
     self.addGestureRecognizer(gestureRecognizer)
     
-    self.dateLabel.text = item.dateString
+    self.dateLabel.text = item.date
     
     // getting image from url
-    if let url = URL(string: self.item.imageUrl) {
+    if let url = URL(string: self.item.url ?? "") {
       self.imageView.sd_setImage(with: url, completed: nil)
     }
     
-    descriptionLabel.text = item.description
+    descriptionLabel.text = item.explanation
   }
   
   func expand(bounds: CGRect) {

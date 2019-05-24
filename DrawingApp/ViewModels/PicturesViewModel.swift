@@ -23,48 +23,41 @@ class PicturesViewModel {
   }()
   
   func getAstronomyPictures() {
-    apodAPI.getAstronomyPictures()
-      .subscribe(onNext: { result in
-        print("Result Status \(result.status)")
-        switch result.status {
-        case .success:
-          print("\(result.value)")
-        case .failure:
-					print("\(result.errorMessage)")
-        case .loading:
-					print("Loading...")
-        @unknown default:
-					break
-        }
-      }, onError: { error in
-
-      }, onCompleted: {
-
-      }) {
-
-    }
-
-    var listItems: Array<ListItem> = PicturesModel.getPicturesFromStorage()
     
-    if (listItems.count > 0) {
-      self.listAnimationVCDelegate?.reloadCollectionViewWithData(listItems: listItems)
-    } else {
-      _ = NetworkUtils.shared.makeGetRequest(url: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2019-05-11&end_date=2019-05-21").subscribe(onNext: { response in
-        if (response.result.value != nil) {
-          let swiftyJsonVar = JSON(response.result.value!)
-          for item in swiftyJsonVar.arrayValue {
-            let description = item["explanation"].stringValue
-            let title = item["title"].stringValue
-            let date = item["date"].stringValue
-            let imageUrl = item["url"].stringValue
-            let listItem = ListItem(color: .white, description: description, imageUrl: imageUrl, title: title, dateString: date)
-            listItems.append(listItem)
-          }
-          listItems.sort(by: { self.dateFormatter.date(from: $0.dateString)!.compare(self.dateFormatter.date(from: $1.dateString)!) == .orderedDescending })
-          PicturesModel.uploadPicturestoStorage(listItems: listItems)
-          self.listAnimationVCDelegate?.reloadCollectionViewWithData(listItems: listItems)
+    let dataObs = Observable.just(PicturesModel.getPicturesFromStorage())
+    
+    let networkObs = apodAPI.getAstronomyPictures()
+      .map { result -> Result<[APODPicture]> in
+        switch result {
+        case .success(let value):
+          //save to database
+          PicturesModel.uploadPicturestoStorage(pictures: value)
+          break
+        default:
+          break
         }
-      }, onError: nil, onCompleted: nil).disposed(by: disposeBag)
+        
+        return result
     }
+    
+    _ = Observable.concat(dataObs, networkObs)
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { result in
+        switch result {
+        case .success(var value):
+          value.sort(by: { self.dateFormatter.date(from: $0.date!)!.compare(self.dateFormatter.date(from: $1.date!)!) == .orderedDescending })
+          if value.count > 0 {
+            self.listAnimationVCDelegate?.reloadCollectionViewWithData(pictures: value)
+          }
+          break
+        case .failure(let error):
+          print(error)
+          break
+        case .loading:
+          print("Loading...")
+          break
+        }
+      
+    }, onError: nil, onCompleted: nil, onDisposed: nil)
   }
 }
