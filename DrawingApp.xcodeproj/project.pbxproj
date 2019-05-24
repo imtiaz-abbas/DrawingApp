@@ -153,6 +153,8 @@
 				B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */,
 				B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */,
 				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
+				1D17992B2296760F00FC04F3 /* APODApi.swift */,
+				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,8 +179,6 @@
 		B2CE74B92296593A0085FF2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1D17992B2296760F00FC04F3 /* APODApi.swift */,
-				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
 				B2CE74B3229583840085FF2E /* PicturesViewModel.swift */,
 			);
 			path = ViewModels;
