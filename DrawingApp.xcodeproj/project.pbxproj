@@ -31,6 +31,7 @@
 		B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B3229583840085FF2E /* PicturesViewModel.swift */; };
 		B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74BD22966D590085FF2E /* PicturesModel.swift */; };
 		B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */; };
+		B2D581752297D45C00C61733 /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D581742297D45C00C61733 /* HomeScreenVC.swift */; };
 		D0ACED3ECD46DA0D0BA0D164 /* Pods_DrawingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		B2CE74B3229583840085FF2E /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
 		B2CE74BD22966D590085FF2E /* PicturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesModel.swift; sourceTree = "<group>"; };
 		B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopVC.swift; sourceTree = "<group>"; };
+		B2D581742297D45C00C61733 /* HomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
 				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
+				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 			);
 			path = Views;
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */,
+				B2D581752297D45C00C61733 /* HomeScreenVC.swift in Sources */,
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,

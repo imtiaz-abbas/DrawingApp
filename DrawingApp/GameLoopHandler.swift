@@ -19,7 +19,7 @@ class MessageCollectionView: UIView, UICollectionViewDataSource, UICollectionVie
   func setupView() {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     layout.itemSize = CGSize(width: (self.widthConstraint?.constant ?? 100) - 20, height: 60)
-		layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+		layout.sectionInset = UIEdgeInsets(top: 40, left: 10, bottom: 10, right: 10)
 
     self.collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     sv(collectionView)
