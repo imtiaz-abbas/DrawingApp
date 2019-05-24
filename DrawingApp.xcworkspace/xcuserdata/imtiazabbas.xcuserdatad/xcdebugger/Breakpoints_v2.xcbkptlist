@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrawingApp/AppDelegate/AppDelegate.swift"
-            timestampString = "580368367.263165"
+            timestampString = "580383066.122864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "persistentContainer"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

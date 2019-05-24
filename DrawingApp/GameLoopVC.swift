@@ -27,11 +27,13 @@ struct Message {
 
 class GameLoopVC : UIViewController {
 
-  	let disposeBag = DisposeBag()
-
     let screenSize = UIScreen.main.bounds
   	let upcomingCollectionView: MessageCollectionView = MessageCollectionView()
     let completedCollectionView: MessageCollectionView = MessageCollectionView()
+  
+    var messageEmitterObs: Disposable?
+    var messageListenerObs: Disposable?
+    var timerObs: Disposable?
 
     let completedQueueView = UIView()
     let scrollView = UIScrollView()
@@ -50,8 +52,9 @@ class GameLoopVC : UIViewController {
         view.sv(upcomingCollectionView, completedCollectionView, currentTimeView)
 
       	currentTimeView.centerHorizontally()
-				currentTimeView.Top == view.Top + 40
-//        updateCurrentTime()
+				currentTimeView.Top == 100
+        currentTimeView.backgroundColor = .red
+        updateCurrentTime()
 
         upcomingCollectionView.width(screenSize.width / 2)
         upcomingCollectionView.height(screenSize.height)
@@ -63,6 +66,12 @@ class GameLoopVC : UIViewController {
         completedCollectionView.Left == upcomingCollectionView.Right
         completedCollectionView.sortOrderReverse = true
     }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    self.messageListenerObs?.dispose()
+    self.messageEmitterObs?.dispose()
+    self.timerObs?.dispose()
+  }
 
   	override func viewWillAppear(_ animated: Bool) {
     	super.viewWillAppear(animated)
@@ -70,11 +79,12 @@ class GameLoopVC : UIViewController {
         completedCollectionView.setupView()
   	}
 
-//    private func updateCurrentTime() {
-//      Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-//        self.currentTimeView.text = self.dateFormatter.string(from: Date())
-//      }
-//    }
+    private func updateCurrentTime() {
+      self.timerObs = Observable<Int>.interval(RxTimeInterval.seconds(1), scheduler: MainScheduler.asyncInstance)
+        .subscribe(onNext: { (val) in
+        self.currentTimeView.text = self.dateFormatter.string(from: Date())
+      })
+    }
 
     func refreshCompletedQueueView() {
         for subView in completedQueueView.subviews {
@@ -114,7 +124,7 @@ class GameLoopVC : UIViewController {
     }
 
     func emitMessages() {
-      	Observable<Int>.interval(RxTimeInterval.seconds(4), scheduler: ConcurrentMainScheduler.instance)
+      	self.messageEmitterObs = Observable<Int>.interval(RxTimeInterval.seconds(4), scheduler: ConcurrentMainScheduler.instance)
       			.observeOn(MainScheduler.asyncInstance)
         		.subscribe(onNext: {value in
                 let calendar = Calendar.current
@@ -124,11 +134,10 @@ class GameLoopVC : UIViewController {
               	let message = Message(timestamp: time, color: Pencil(tag: randomNumber)?.color ?? UIColor.black, discarded: false, completed: false)
               	self.addMessagToQueue(message: message)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
-      			.disposed(by: disposeBag)
     }
     
     func observeMessages() {
-        Observable<Int>.interval(RxTimeInterval.milliseconds(100), scheduler: ConcurrentMainScheduler.instance)
+        self.messageListenerObs = Observable<Int>.interval(RxTimeInterval.milliseconds(100), scheduler: ConcurrentMainScheduler.instance)
             .subscribe(onNext: {value in
                 // filtering completed messages and discarded messages from upcoming messages
               	if let messagePop = self.upcomingCollectionView.getFirstUpcomingMessage() {
@@ -159,7 +168,6 @@ class GameLoopVC : UIViewController {
                 
                 self.refreshCompletedQueueView()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
-      			.disposed(by: disposeBag)
     }
     
     func runGameLoop() {
