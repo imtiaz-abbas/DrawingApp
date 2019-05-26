@@ -10,7 +10,7 @@ import UIKit
 
 class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly"]
+  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModal", "BottomModal"]
   let cellReuseIdentifier = "HomeScreenTableView"
   
   var tableView: UITableView!
@@ -47,6 +47,14 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(ListAnimationsVC(), animated: true)
     } else if (self.items[indexPath.row] == "PanGesture") {
       navigationController?.pushViewController(PanGestureVC(), animated: true)
+    } else if (self.items[indexPath.row] == "SpaceBetween") {
+      navigationController?.pushViewController(SpaceBetweenVC(), animated: true)
+    } else if (self.items[indexPath.row] == "SpaceEvenly") {
+      navigationController?.pushViewController(SpaceEvenlyVC(), animated: true)
+    } else if (self.items[indexPath.row] == "CenterModal") {
+      // TODO
+    } else if (self.items[indexPath.row] == "BottomModal") {
+      // TODO
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
