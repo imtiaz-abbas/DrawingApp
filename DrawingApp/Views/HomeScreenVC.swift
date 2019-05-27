@@ -37,7 +37,6 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("You tapped cell number \(indexPath.row).")
     if (self.items[indexPath.row] == "Drawing") {
       navigationController?.pushViewController(MainScreenController(), animated: true)
     } else if (self.items[indexPath.row] == "GameLoop") {
@@ -56,11 +55,11 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       centerModalVC.modalPresentationStyle = .overCurrentContext
       self.present(centerModalVC, animated: true, completion: nil)
     } else if (self.items[indexPath.row] == "CenterModalView") {
-      let centerModalView = CenterModalView()
+      let centerModalView = ModalView(type: "Center")
       self.view.sv(centerModalView)
       navigationController?.setNavigationBarHidden(true, animated: true)
     } else if (self.items[indexPath.row] == "BottomModalView") {
-      let bottomModalView = BottomModalView()
+      let bottomModalView = ModalView(type: "Bottom")
       self.view.sv(bottomModalView)
       navigationController?.setNavigationBarHidden(true, animated: true)
     }

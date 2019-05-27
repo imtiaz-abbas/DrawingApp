@@ -1,5 +1,5 @@
 //
-//  CenterModalView.swift
+//  ModalView.swift
 //  DrawingApp
 //
 //  Created by imtiaz abbas on 27/05/19.
@@ -10,16 +10,22 @@ import UIKit
 import Stevia
 
 
-class CenterModalView: UIView {
+class ModalView: UIView {
   var dialogView = UIView()
   var titleLabel = UILabel()
   var screenSize = UIScreen.main.bounds
-  override init(frame: CGRect) {
+  var type = "Bottom"
+  
+  convenience init(type: String) {
+    self.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size), type: type)
+  }
+  
+  init(frame: CGRect, type: String) {
+    self.type = type
     super.init(frame: frame)
     self.height(screenSize.height)
     self.width(screenSize.width)
     self.backgroundColor = UIColor(white: 0, alpha: 0.5)
-    
     
     self.sv(dialogView)
     dialogView.sv(titleLabel)
@@ -41,11 +47,16 @@ class CenterModalView: UIView {
     dialogView.height(300)
     dialogView.width(300)
     dialogView.centerHorizontally()
-    dialogView.centerVertically()
+    if self.type == "Bottom" {
+      dialogView.Bottom == safeAreaLayoutGuide.Bottom
+      titleLabel.text = "BOTTOM MODAL"
+    } else {
+      dialogView.centerVertically()
+      titleLabel.text = "CENTER MODAL"
+    }
     dialogView.layer.cornerRadius = 8
     dialogView.backgroundColor = .white
     
-    titleLabel.text = "CENTER MODAL"
     titleLabel.centerVertically()
     titleLabel.centerHorizontally()
   }
