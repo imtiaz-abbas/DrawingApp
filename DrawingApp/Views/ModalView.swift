@@ -9,18 +9,22 @@
 import UIKit
 import Stevia
 
+enum ModalType {
+  case center
+  case bottom
+}
 
 class ModalView: UIView {
   var dialogView = UIView()
   var titleLabel = UILabel()
   var screenSize = UIScreen.main.bounds
-  var type = "Bottom"
+  var type: ModalType = .center
   
-  convenience init(type: String) {
+  convenience init(type: ModalType) {
     self.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size), type: type)
   }
   
-  init(frame: CGRect, type: String) {
+  init(frame: CGRect, type: ModalType) {
     self.type = type
     super.init(frame: frame)
     self.height(screenSize.height)
@@ -47,7 +51,7 @@ class ModalView: UIView {
     dialogView.height(300)
     dialogView.width(300)
     dialogView.centerHorizontally()
-    if self.type == "Bottom" {
+    if self.type == .bottom {
       dialogView.Bottom == safeAreaLayoutGuide.Bottom
       titleLabel.text = "BOTTOM MODAL"
     } else {

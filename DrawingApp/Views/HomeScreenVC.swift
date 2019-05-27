@@ -61,11 +61,11 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       centerModalVC.modalPresentationStyle = .overCurrentContext
       self.present(centerModalVC, animated: true, completion: nil)
     } else if (self.items[indexPath.row] == "CenterModalView") {
-      let centerModalView = ModalView(type: "Center")
+      let centerModalView = ModalView(type: .center)
       self.view.sv(centerModalView)
       navigationController?.setNavigationBarHidden(true, animated: true)
     } else if (self.items[indexPath.row] == "BottomModalView") {
-      let bottomModalView = ModalView(type: "Bottom")
+      let bottomModalView = ModalView(type: .bottom)
       self.view.sv(bottomModalView)
       navigationController?.setNavigationBarHidden(true, animated: true)
     }
