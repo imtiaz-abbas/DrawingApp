@@ -10,7 +10,7 @@ import UIKit
 
 class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "FlexCenter", "FlexStart", "FlexEnd", "SpaceBetween", "SpaceEvenly", "CenterModalViewController", "CenterModalView", "BottomModalView"]
+  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "FlexCenter", "FlexStart", "FlexEnd", "SpaceBetween", "SpaceEvenly", "CenterModalView", "BottomModalView"]
   let cellReuseIdentifier = "HomeScreenTableView"
   var tableView: UITableView!
   
@@ -55,11 +55,6 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(FlexBoxVC(type: .spaceBetween), animated: true)
     } else if (self.items[indexPath.row] == "SpaceEvenly") {
       navigationController?.pushViewController(FlexBoxVC(type: .spaceAround), animated: true)
-    } else if (self.items[indexPath.row] == "CenterModalViewController") {
-      let centerModalVC = CenterModalVC()
-      centerModalVC.modalTransitionStyle = .crossDissolve
-      centerModalVC.modalPresentationStyle = .overCurrentContext
-      self.present(centerModalVC, animated: true, completion: nil)
     } else if (self.items[indexPath.row] == "CenterModalView") {
       let centerModalView = ModalView(type: .center)
       self.view.sv(centerModalView)

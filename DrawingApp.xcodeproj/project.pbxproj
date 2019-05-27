@@ -22,7 +22,6 @@
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
-		B25F9353229B95A300DE8092 /* CenterModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9352229B95A300DE8092 /* CenterModalVC.swift */; };
 		B25F9357229BA29700DE8092 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9356229BA29700DE8092 /* ModalView.swift */; };
 		B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */; };
 		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
@@ -60,7 +59,6 @@
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
-		B25F9352229B95A300DE8092 /* CenterModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModalVC.swift; sourceTree = "<group>"; };
 		B25F9356229BA29700DE8092 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexBoxVC.swift; sourceTree = "<group>"; };
 		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
-				B25F9352229B95A300DE8092 /* CenterModalVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
 				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
 			);
@@ -359,7 +356,6 @@
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
 				B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */,
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
-				B25F9353229B95A300DE8092 /* CenterModalVC.swift in Sources */,
 				B2D2D0FD2297F45100BFBF05 /* PanGestureVC.swift in Sources */,
 				B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */,
 				B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */,
