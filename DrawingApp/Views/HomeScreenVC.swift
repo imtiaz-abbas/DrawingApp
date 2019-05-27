@@ -12,7 +12,6 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
   
   let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModal", "BottomModal"]
   let cellReuseIdentifier = "HomeScreenTableView"
-  
   var tableView: UITableView!
   
   override func viewDidLoad() {
@@ -52,7 +51,10 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     } else if (self.items[indexPath.row] == "SpaceEvenly") {
       navigationController?.pushViewController(SpaceEvenlyVC(), animated: true)
     } else if (self.items[indexPath.row] == "CenterModal") {
-      // TODO
+      let centerModalVC = CenterModalVC()
+      centerModalVC.modalTransitionStyle = .crossDissolve
+      centerModalVC.modalPresentationStyle = .overCurrentContext
+      self.present(centerModalVC, animated: true, completion: nil)
     } else if (self.items[indexPath.row] == "BottomModal") {
       // TODO
     }
