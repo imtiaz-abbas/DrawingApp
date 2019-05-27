@@ -26,6 +26,7 @@
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
 		B25F9353229B95A300DE8092 /* CenterModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9352229B95A300DE8092 /* CenterModalVC.swift */; };
 		B25F9357229BA29700DE8092 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9356229BA29700DE8092 /* ModalView.swift */; };
+		B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */; };
 		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
 		B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
@@ -65,6 +66,7 @@
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
 		B25F9352229B95A300DE8092 /* CenterModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModalVC.swift; sourceTree = "<group>"; };
 		B25F9356229BA29700DE8092 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexCenterVC.swift; sourceTree = "<group>"; };
 		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				B223D4CD229A82F6002E8C85 /* SpaceEvenlyVC.swift */,
 				B25F9352229B95A300DE8092 /* CenterModalVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
+				B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
+				B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B223D4CE229A82F6002E8C85 /* SpaceEvenlyVC.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,

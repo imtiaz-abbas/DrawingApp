@@ -64,8 +64,10 @@ class ModalView: UIView {
   func animateIn() {
     self.dialogView.transform = CGAffineTransform.init(translationX: 0, y: screenSize.height)
     self.dialogView.alpha = 0
+    dialogView.layer.cornerRadius = 0
     self.alpha = 0
     UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+      self.dialogView.layer.cornerRadius = 8
       self.dialogView.alpha = 1
       self.alpha = 1
       self.dialogView.transform = .identity
@@ -76,6 +78,7 @@ class ModalView: UIView {
     UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
       self.dialogView.alpha = 0
       self.alpha = 0
+      self.dialogView.layer.cornerRadius = 0
       self.dialogView.transform = CGAffineTransform.init(translationX: 0, y: self.screenSize.height)
     }) { (complete) in
       if complete {
