@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Stevia
 
 class BoxView: UIView {
   var lastLocation = CGPoint(x: 0, y: 0)
-
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -25,7 +26,7 @@ class BoxView: UIView {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     lastLocation = self.center
-    UIView.animate(withDuration: 0.7,
+    UIView.animate(withDuration: 0.3,
                    delay: 0.0,
                    usingSpringWithDamping: 0.8,
                    initialSpringVelocity: 0.8,
@@ -43,7 +44,7 @@ class BoxView: UIView {
   }
   
   func onTouchEnded() {
-    UIView.animate(withDuration: 0.4,
+    UIView.animate(withDuration: 0.1,
                    delay: 0.0,
                    usingSpringWithDamping: 0.8,
                    initialSpringVelocity: 0.8,
@@ -57,12 +58,15 @@ class BoxView: UIView {
   }
   
   @objc func detectPan(_ recognizer:UIPanGestureRecognizer) {
-    
     if (recognizer.state == .ended) {
       self.onTouchEnded()
     }
     let translation  = recognizer.translation(in: self.superview)
-    self.center = CGPoint(x: lastLocation.x + translation.x, y: lastLocation.y + translation.y)
+    let pX = lastLocation.x + translation.x
+    let pY = lastLocation.y + translation.y
+    if pX > self.bounds.width / 2 && pY > self.bounds.height / 2 && pX < (self.superview?.bounds.size.width)! - self.bounds.width / 2 && pY < (self.superview?.bounds.size.height)! - self.bounds.height / 2 {
+      self.center = CGPoint(x: lastLocation.x + translation.x, y: lastLocation.y + translation.y)
+    }
   }
   
   func showElevation() {
@@ -81,12 +85,17 @@ class BoxView: UIView {
 
 class PanGestureVC: UIViewController {
   let box = BoxView()
+  let safeAreaContainer = UIView()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.fillContainer(20)
     self.view.backgroundColor = .white
-    
-    self.view.sv(box)
+    self.view.sv(safeAreaContainer)
+    safeAreaContainer.Top == self.view.safeAreaLayoutGuide.Top
+    safeAreaContainer.Bottom == self.view.safeAreaLayoutGuide.Bottom
+    safeAreaContainer.fillContainer()
+    safeAreaContainer.sv(box)
     box.height(100)
     box.width(100)
     box.backgroundColor = .yellow
@@ -94,16 +103,4 @@ class PanGestureVC: UIViewController {
     box.centerHorizontally()
     box.centerVertically()
   }
-  
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }
