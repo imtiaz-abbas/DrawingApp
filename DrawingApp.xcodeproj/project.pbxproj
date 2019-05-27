@@ -19,16 +19,12 @@
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
 		B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21593672292D58800C101CB /* ItemCollectionViewCell.swift */; };
 		B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */; };
-		B223D4CC229A7C82002E8C85 /* SpaceBetweenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B223D4CB229A7C82002E8C85 /* SpaceBetweenVC.swift */; };
-		B223D4CE229A82F6002E8C85 /* SpaceEvenlyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B223D4CD229A82F6002E8C85 /* SpaceEvenlyVC.swift */; };
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
 		B25F9353229B95A300DE8092 /* CenterModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9352229B95A300DE8092 /* CenterModalVC.swift */; };
 		B25F9357229BA29700DE8092 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9356229BA29700DE8092 /* ModalView.swift */; };
-		B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */; };
-		B25F935B229BD7C100DE8092 /* FlexStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935A229BD7C100DE8092 /* FlexStartVC.swift */; };
-		B25F935D229BD87D00DE8092 /* FlexEndVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935C229BD87D00DE8092 /* FlexEndVC.swift */; };
+		B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */; };
 		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
 		B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
@@ -61,16 +57,12 @@
 		B20E5981227C4F5D00D53AA7 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		B21593672292D58800C101CB /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScreenController.swift; sourceTree = "<group>"; };
-		B223D4CB229A7C82002E8C85 /* SpaceBetweenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceBetweenVC.swift; sourceTree = "<group>"; };
-		B223D4CD229A82F6002E8C85 /* SpaceEvenlyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEvenlyVC.swift; sourceTree = "<group>"; };
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
 		B25F9352229B95A300DE8092 /* CenterModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModalVC.swift; sourceTree = "<group>"; };
 		B25F9356229BA29700DE8092 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexCenterVC.swift; sourceTree = "<group>"; };
-		B25F935A229BD7C100DE8092 /* FlexStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexStartVC.swift; sourceTree = "<group>"; };
-		B25F935C229BD87D00DE8092 /* FlexEndVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexEndVC.swift; sourceTree = "<group>"; };
+		B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexBoxVC.swift; sourceTree = "<group>"; };
 		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
@@ -162,13 +154,9 @@
 				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
 				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
-				B223D4CB229A7C82002E8C85 /* SpaceBetweenVC.swift */,
-				B223D4CD229A82F6002E8C85 /* SpaceEvenlyVC.swift */,
 				B25F9352229B95A300DE8092 /* CenterModalVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
-				B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */,
-				B25F935A229BD7C100DE8092 /* FlexStartVC.swift */,
-				B25F935C229BD87D00DE8092 /* FlexEndVC.swift */,
+				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,11 +347,9 @@
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
-				B25F935D229BD87D00DE8092 /* FlexEndVC.swift in Sources */,
+				B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
-				B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
-				B223D4CE229A82F6002E8C85 /* SpaceEvenlyVC.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
 				B25F9357229BA29700DE8092 /* ModalView.swift in Sources */,
 				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
@@ -372,7 +358,6 @@
 				B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */,
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,
 				B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */,
-				B223D4CC229A7C82002E8C85 /* SpaceBetweenVC.swift in Sources */,
 				B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */,
 				B25F9353229B95A300DE8092 /* CenterModalVC.swift in Sources */,
 				B2D2D0FD2297F45100BFBF05 /* PanGestureVC.swift in Sources */,
@@ -383,7 +368,6 @@
 				1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */,
 				B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */,
 				B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */,
-				B25F935B229BD7C100DE8092 /* FlexStartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

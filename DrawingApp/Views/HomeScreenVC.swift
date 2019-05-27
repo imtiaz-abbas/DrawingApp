@@ -45,10 +45,16 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(ListAnimationsVC(), animated: true)
     } else if (self.items[indexPath.row] == "PanGesture") {
       navigationController?.pushViewController(PanGestureVC(), animated: true)
+    } else if (self.items[indexPath.row] == "FlexCenter") {
+      navigationController?.pushViewController(FlexBoxVC(type: .center), animated: true)
+    } else if (self.items[indexPath.row] == "FlexStart") {
+      navigationController?.pushViewController(FlexBoxVC(type: .flexStart), animated: true)
+    } else if (self.items[indexPath.row] == "FlexEnd") {
+      navigationController?.pushViewController(FlexBoxVC(type: .flexEnd), animated: true)
     } else if (self.items[indexPath.row] == "SpaceBetween") {
-      navigationController?.pushViewController(SpaceBetweenVC(), animated: true)
+      navigationController?.pushViewController(FlexBoxVC(type: .spaceBetween), animated: true)
     } else if (self.items[indexPath.row] == "SpaceEvenly") {
-      navigationController?.pushViewController(SpaceEvenlyVC(), animated: true)
+      navigationController?.pushViewController(FlexBoxVC(type: .spaceAround), animated: true)
     } else if (self.items[indexPath.row] == "CenterModalViewController") {
       let centerModalVC = CenterModalVC()
       centerModalVC.modalTransitionStyle = .crossDissolve
@@ -62,12 +68,6 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       let bottomModalView = ModalView(type: "Bottom")
       self.view.sv(bottomModalView)
       navigationController?.setNavigationBarHidden(true, animated: true)
-    } else if (self.items[indexPath.row] == "FlexCenter") {
-      navigationController?.pushViewController(FlexCenterVC(), animated: true)
-    } else if (self.items[indexPath.row] == "FlexStart") {
-      navigationController?.pushViewController(FlexStartVC(), animated: true)
-    } else if (self.items[indexPath.row] == "FlexEnd") {
-      navigationController?.pushViewController(FlexEndVC(), animated: true)
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
