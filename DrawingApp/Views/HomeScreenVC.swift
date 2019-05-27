@@ -10,7 +10,7 @@ import UIKit
 
 class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModalViewController", "CenterModalView", "BottomModalView", "FlexCenter"]
+  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModalViewController", "CenterModalView", "BottomModalView", "FlexCenter", "FlexStart"]
   let cellReuseIdentifier = "HomeScreenTableView"
   var tableView: UITableView!
   
@@ -64,6 +64,8 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.setNavigationBarHidden(true, animated: true)
     } else if (self.items[indexPath.row] == "FlexCenter") {
       navigationController?.pushViewController(FlexCenterVC(), animated: true)
+    } else if (self.items[indexPath.row] == "FlexStart") {
+      navigationController?.pushViewController(FlexStartVC(), animated: true)
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }

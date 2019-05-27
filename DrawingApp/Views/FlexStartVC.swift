@@ -1,5 +1,5 @@
 //
-//  FlexCenterVC.swift
+//  FlexStartVC.swift
 //  DrawingApp
 //
 //  Created by imtiaz abbas on 27/05/19.
@@ -9,7 +9,7 @@
 import UIKit
 import Stevia
 
-class FlexCenterVC: UIViewController {
+class FlexStartVC: UIViewController {
   var sv1 = UIView()
   var sv2 = UIView()
   var sv3 = UIView()
@@ -30,7 +30,6 @@ class FlexCenterVC: UIViewController {
     safeAreaContainer.sv(contentContainer)
     contentContainer.height(itemHeight * 3)
     contentContainer.width(itemWidth * 3)
-    contentContainer.centerVertically()
     contentContainer.centerHorizontally()
     
     self.contentContainer.sv(sv1, sv2, sv3)
