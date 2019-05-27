@@ -28,6 +28,7 @@
 		B25F9357229BA29700DE8092 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9356229BA29700DE8092 /* ModalView.swift */; };
 		B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */; };
 		B25F935B229BD7C100DE8092 /* FlexStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935A229BD7C100DE8092 /* FlexStartVC.swift */; };
+		B25F935D229BD87D00DE8092 /* FlexEndVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935C229BD87D00DE8092 /* FlexEndVC.swift */; };
 		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
 		B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
@@ -69,6 +70,7 @@
 		B25F9356229BA29700DE8092 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexCenterVC.swift; sourceTree = "<group>"; };
 		B25F935A229BD7C100DE8092 /* FlexStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexStartVC.swift; sourceTree = "<group>"; };
+		B25F935C229BD87D00DE8092 /* FlexEndVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexEndVC.swift; sourceTree = "<group>"; };
 		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
 				B25F9358229BD4A100DE8092 /* FlexCenterVC.swift */,
 				B25F935A229BD7C100DE8092 /* FlexStartVC.swift */,
+				B25F935C229BD87D00DE8092 /* FlexEndVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
+				B25F935D229BD87D00DE8092 /* FlexEndVC.swift in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
 				B25F9359229BD4A100DE8092 /* FlexCenterVC.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
