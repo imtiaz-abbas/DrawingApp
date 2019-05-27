@@ -10,7 +10,7 @@ import UIKit
 
 class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModal", "BottomModal"]
+  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "SpaceBetween", "SpaceEvenly", "CenterModalViewController", "CenterModalView", "BottomModalView"]
   let cellReuseIdentifier = "HomeScreenTableView"
   var tableView: UITableView!
   
@@ -50,13 +50,19 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(SpaceBetweenVC(), animated: true)
     } else if (self.items[indexPath.row] == "SpaceEvenly") {
       navigationController?.pushViewController(SpaceEvenlyVC(), animated: true)
-    } else if (self.items[indexPath.row] == "CenterModal") {
+    } else if (self.items[indexPath.row] == "CenterModalViewController") {
       let centerModalVC = CenterModalVC()
       centerModalVC.modalTransitionStyle = .crossDissolve
       centerModalVC.modalPresentationStyle = .overCurrentContext
       self.present(centerModalVC, animated: true, completion: nil)
-    } else if (self.items[indexPath.row] == "BottomModal") {
-      // TODO
+    } else if (self.items[indexPath.row] == "CenterModalView") {
+      let centerModalView = CenterModalView()
+      self.view.sv(centerModalView)
+      navigationController?.setNavigationBarHidden(true, animated: true)
+    } else if (self.items[indexPath.row] == "BottomModalView") {
+      let bottomModalView = BottomModalView()
+      self.view.sv(bottomModalView)
+      navigationController?.setNavigationBarHidden(true, animated: true)
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
