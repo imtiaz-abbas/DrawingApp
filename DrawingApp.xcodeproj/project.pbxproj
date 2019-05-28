@@ -24,6 +24,7 @@
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
 		B25F9357229BA29700DE8092 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9356229BA29700DE8092 /* ModalView.swift */; };
 		B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */; };
+		B25F9361229C065F00DE8092 /* StackViewFlexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */; };
 		B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */; };
 		B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */; };
 		B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */; };
@@ -61,6 +62,7 @@
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
 		B25F9356229BA29700DE8092 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexBoxVC.swift; sourceTree = "<group>"; };
+		B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewFlexVC.swift; sourceTree = "<group>"; };
 		B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationsVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
 				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
+				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				1D0339A2228D815900B78EEA /* GameLoopHandler.swift in Sources */,
 				1D1799302296886D00FC04F3 /* Result.swift in Sources */,
 				1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */,
+				B25F9361229C065F00DE8092 /* StackViewFlexVC.swift in Sources */,
 				B26C4D16229693ED00DB5132 /* Picture+CoreDataClass.swift in Sources */,
 				B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */,
 			);

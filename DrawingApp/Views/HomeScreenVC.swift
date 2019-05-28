@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  
-  let items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "FlexCenter", "FlexStart", "FlexEnd", "SpaceBetween", "SpaceEvenly", "CenterModalView", "BottomModalView"]
+class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
+  var items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "FlexCenter", "FlexStart", "FlexEnd", "SpaceBetween", "SpaceEvenly", "SpaceBetweenStackView", "CenterModalView", "BottomModalView"]
   let cellReuseIdentifier = "HomeScreenTableView"
   var tableView: UITableView!
   
@@ -18,6 +18,9 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     super.viewDidLoad()
     tableView = UITableView()
     self.view.sv(tableView)
+    tableView.dropDelegate = self
+    tableView.dragDelegate = self
+    tableView.dragInteractionEnabled = true
     tableView.height(UIScreen.main.bounds.size.height)
     tableView.width(UIScreen.main.bounds.size.width)
     
@@ -34,6 +37,21 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! UITableViewCell
     cell.textLabel?.text = self.items[indexPath.row]
     return cell
+  }
+  func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+    return []
+  }
+  
+  func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {}
+  
+  func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    let productToMove = items[sourceIndexPath.row]
+    self.items.remove(at: sourceIndexPath.row)
+    self.items.insert(productToMove, at: destinationIndexPath.row)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -55,14 +73,16 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       navigationController?.pushViewController(FlexBoxVC(type: .spaceBetween), animated: true)
     } else if (self.items[indexPath.row] == "SpaceEvenly") {
       navigationController?.pushViewController(FlexBoxVC(type: .spaceAround), animated: true)
+    } else if (self.items[indexPath.row] == "SpaceBetweenStackView") {
+      navigationController?.pushViewController(StackViewFlexVC(type: .spaceBetween), animated: true)
     } else if (self.items[indexPath.row] == "CenterModalView") {
       let centerModalView = ModalView(type: .center)
-      self.view.sv(centerModalView)
-      navigationController?.setNavigationBarHidden(true, animated: true)
+      let currentWindow: UIWindow? = UIApplication.shared.keyWindow
+      currentWindow?.addSubview(centerModalView)
     } else if (self.items[indexPath.row] == "BottomModalView") {
       let bottomModalView = ModalView(type: .bottom)
-      self.view.sv(bottomModalView)
-      navigationController?.setNavigationBarHidden(true, animated: true)
+      let currentWindow: UIWindow? = UIApplication.shared.keyWindow
+      currentWindow?.addSubview(bottomModalView)
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
