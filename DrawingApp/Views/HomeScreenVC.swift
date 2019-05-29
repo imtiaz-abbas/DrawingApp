@@ -9,13 +9,76 @@
 import UIKit
 import MobileCoreServices
 
+enum HomeItemType {
+  case drawing
+  case gameloop
+  case apod
+  case panGesture
+  case flexCenter
+  case flexStart
+  case flexEnd
+  case spaceBetween
+  case spaceEvenly
+  case spaceBetweenStackView
+  case centerModalView
+  case bottomModalView
+}
+
+struct HomeItem {
+  public let name: String
+  public let type: HomeItemType
+  
+  init(type: HomeItemType) {
+    self.type = type
+    switch type {
+    case .drawing:
+      self.name = "Drawing"
+      break
+    case .gameloop:
+      self.name = "Game Loop"
+      break
+    case .apod:
+      self.name = "APOD"
+      break
+    case .panGesture:
+      self.name = "Pan Gesture"
+      break
+    case .flexCenter:
+      self.name = "Flex Center"
+      break
+    case .flexStart:
+      self.name = "Flex Start"
+      break
+    case .flexEnd:
+      self.name = "Flex End"
+      break
+    case .spaceBetween:
+      self.name = "Space Between"
+      break
+    case .spaceEvenly:
+      self.name = "Space Around"
+      break
+    case .spaceBetweenStackView:
+      self.name = "Stack View Space Between"
+      break
+    case .centerModalView:
+      self.name = "Center Modal View"
+      break
+    case .bottomModalView:
+      self.name = "Bottom Modal View"
+      break
+    }
+  }
+}
+
 class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
-  var items: [String] = ["Drawing", "GameLoop", "APOD", "PanGesture", "FlexCenter", "FlexStart", "FlexEnd", "SpaceBetween", "SpaceEvenly", "SpaceBetweenStackView", "CenterModalView", "BottomModalView"]
+  var items: Array<HomeItem> = []
   let cellReuseIdentifier = "HomeScreenTableView"
   var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.items = getHomeItems()
     tableView = UITableView()
     self.view.sv(tableView)
     tableView.dropDelegate = self
@@ -29,13 +92,30 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     tableView.dataSource = self
   }
   
+  func getHomeItems () -> Array<HomeItem> {
+    return [
+      HomeItem(type: .drawing),
+      HomeItem(type: .gameloop),
+      HomeItem(type: .apod),
+      HomeItem(type: .panGesture),
+      HomeItem(type: .flexCenter),
+      HomeItem(type: .flexStart),
+      HomeItem(type: .flexEnd),
+      HomeItem(type: .spaceBetween),
+      HomeItem(type: .spaceEvenly),
+      HomeItem(type: .spaceBetweenStackView),
+      HomeItem(type: .centerModalView),
+      HomeItem(type: .bottomModalView)
+    ]
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.items.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! UITableViewCell
-    cell.textLabel?.text = self.items[indexPath.row]
+    cell.textLabel?.text = self.items[indexPath.row].name
     return cell
   }
   func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
@@ -55,34 +135,49 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if (self.items[indexPath.row] == "Drawing") {
+    
+    
+    switch self.items[indexPath.row].type {
+    case .drawing:
       navigationController?.pushViewController(MainScreenController(), animated: true)
-    } else if (self.items[indexPath.row] == "GameLoop") {
+      break
+    case .gameloop:
       navigationController?.pushViewController(GameLoopVC(), animated: true)
-    } else if (self.items[indexPath.row] == "APOD") {
+      break
+    case .apod:
       navigationController?.pushViewController(ListAnimationsVC(), animated: true)
-    } else if (self.items[indexPath.row] == "PanGesture") {
+      break
+    case .panGesture:
       navigationController?.pushViewController(PanGestureVC(), animated: true)
-    } else if (self.items[indexPath.row] == "FlexCenter") {
+      break
+    case .flexCenter:
       navigationController?.pushViewController(FlexBoxVC(type: .center), animated: true)
-    } else if (self.items[indexPath.row] == "FlexStart") {
+      break
+    case .flexStart:
       navigationController?.pushViewController(FlexBoxVC(type: .flexStart), animated: true)
-    } else if (self.items[indexPath.row] == "FlexEnd") {
+      break
+    case .flexEnd:
       navigationController?.pushViewController(FlexBoxVC(type: .flexEnd), animated: true)
-    } else if (self.items[indexPath.row] == "SpaceBetween") {
+      break
+    case .spaceBetween:
       navigationController?.pushViewController(FlexBoxVC(type: .spaceBetween), animated: true)
-    } else if (self.items[indexPath.row] == "SpaceEvenly") {
+      break
+    case .spaceEvenly:
       navigationController?.pushViewController(FlexBoxVC(type: .spaceAround), animated: true)
-    } else if (self.items[indexPath.row] == "SpaceBetweenStackView") {
+      break
+    case .spaceBetweenStackView:
       navigationController?.pushViewController(StackViewFlexVC(type: .spaceBetween), animated: true)
-    } else if (self.items[indexPath.row] == "CenterModalView") {
+      break
+    case .centerModalView:
       let centerModalView = ModalView(type: .center)
       let currentWindow: UIWindow? = UIApplication.shared.keyWindow
       currentWindow?.addSubview(centerModalView)
-    } else if (self.items[indexPath.row] == "BottomModalView") {
+      break
+    case .bottomModalView:
       let bottomModalView = ModalView(type: .bottom)
       let currentWindow: UIWindow? = UIApplication.shared.keyWindow
       currentWindow?.addSubview(bottomModalView)
+      break
     }
     tableView.deselectRow(at: indexPath, animated: true)
   }
