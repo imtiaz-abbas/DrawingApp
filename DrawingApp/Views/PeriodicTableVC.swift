@@ -49,31 +49,6 @@ class PeriodicTableVC: UIViewController, UIScrollViewDelegate {
   
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-//    self.scrollview.contentSize.height = 1360
     self.scrollview.contentSize.width = (CGFloat(ElementsCollectionView.cellSize * 19))
-  }
-  
-  
-  
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    if scrollView == elementsCollectionView {
-      if scrollView.contentOffset.y > -48 {
-//        self.setLangFilterHidden(isHidden: true)
-      } else {
-//        self.setLangFilterHidden(isHidden: false)
-      }
-    }
-  }
-  
-  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    if scrollView == elementsCollectionView {
-//      self.setLangFilterHidden(isHidden: false)
-    }
-  }
-  
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    if scrollView == elementsCollectionView {
-//      self.setLangFilterHidden(isHidden: false)
-    }
   }
 }
