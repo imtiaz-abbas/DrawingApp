@@ -13,13 +13,15 @@ import PureLayout
 class ElementsCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
   var items: Array<Element> = []
+  static var cellSize: Int = 60
   var collectionView: UICollectionView!
   let screenSize = UIScreen.main.bounds
   
   func setupView() {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    layout.minimumLineSpacing = 10
+//    layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+    layout.minimumLineSpacing = 0
+    layout.minimumInteritemSpacing = 0
     self.collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
     self.addSubview(self.collectionView)
     collectionView.autoPinEdgesToSuperviewSafeArea()
@@ -36,11 +38,11 @@ class ElementsCollectionView: UIView, UICollectionViewDataSource, UICollectionVi
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return items.count
+    return 19*10
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 60, height: 60)
+    return CGSize(width: ElementsCollectionView.cellSize, height: ElementsCollectionView.cellSize)
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
