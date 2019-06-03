@@ -19,6 +19,10 @@
 		B20E5982227C4F5D00D53AA7 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E5981227C4F5D00D53AA7 /* CanvasView.swift */; };
 		B21593682292D58800C101CB /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21593672292D58800C101CB /* ItemCollectionViewCell.swift */; };
 		B21E3E9022859D50006E7B78 /* AudioScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */; };
+		B229108C22A4F0EF009EA374 /* ElementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229108B22A4F0EF009EA374 /* ElementsModel.swift */; };
+		B229108E22A4F122009EA374 /* elements.json in Resources */ = {isa = PBXBuildFile; fileRef = B229108D22A4F122009EA374 /* elements.json */; };
+		B229109022A4F24B009EA374 /* PeriodicTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229108F22A4F24B009EA374 /* PeriodicTableVC.swift */; };
+		B229109222A4FDF7009EA374 /* ElementsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B229109122A4FDF7009EA374 /* ElementsCollectionView.swift */; };
 		B239F91D227EBCCA004EF513 /* Pencil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91C227EBCCA004EF513 /* Pencil.swift */; };
 		B239F91F227EC86D004EF513 /* StrokeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */; };
 		B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */; };
@@ -57,6 +61,10 @@
 		B20E5981227C4F5D00D53AA7 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		B21593672292D58800C101CB /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B21E3E8F22859D50006E7B78 /* AudioScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScreenController.swift; sourceTree = "<group>"; };
+		B229108B22A4F0EF009EA374 /* ElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsModel.swift; sourceTree = "<group>"; };
+		B229108D22A4F122009EA374 /* elements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = elements.json; sourceTree = "<group>"; };
+		B229108F22A4F24B009EA374 /* PeriodicTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableVC.swift; sourceTree = "<group>"; };
+		B229109122A4FDF7009EA374 /* ElementsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsCollectionView.swift; sourceTree = "<group>"; };
 		B239F91C227EBCCA004EF513 /* Pencil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pencil.swift; sourceTree = "<group>"; };
 		B239F91E227EC86D004EF513 /* StrokeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSelectorView.swift; sourceTree = "<group>"; };
 		B25A09B6227D98C200E41356 /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +165,8 @@
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
 				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
 				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
+				B229108F22A4F24B009EA374 /* PeriodicTableVC.swift */,
+				B229109122A4FDF7009EA374 /* ElementsCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +180,7 @@
 				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
 				1D17992B2296760F00FC04F3 /* APODApi.swift */,
 				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
+				B229108B22A4F0EF009EA374 /* ElementsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 			children = (
 				B20E5972227C3A9000D53AA7 /* Assets.xcassets */,
 				B20E5977227C3A9000D53AA7 /* Info.plist */,
+				B229108D22A4F122009EA374 /* elements.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -270,6 +282,7 @@
 			files = (
 				B20E5976227C3A9000D53AA7 /* LaunchScreen.storyboard in Resources */,
 				B20E5973227C3A9000D53AA7 /* Assets.xcassets in Resources */,
+				B229108E22A4F122009EA374 /* elements.json in Resources */,
 				B20E5971227C3A8F00D53AA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,14 +359,17 @@
 				B2D581752297D45C00C61733 /* HomeScreenVC.swift in Sources */,
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
+				B229109022A4F24B009EA374 /* PeriodicTableVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
 				B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
+				B229108C22A4F0EF009EA374 /* ElementsModel.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
 				B25F9357229BA29700DE8092 /* ModalView.swift in Sources */,
 				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
+				B229109222A4FDF7009EA374 /* ElementsCollectionView.swift in Sources */,
 				B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */,
 				B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */,
 				B20E5980227C3B8B00D53AA7 /* MainScreenController.swift in Sources */,

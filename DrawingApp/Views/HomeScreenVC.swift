@@ -22,6 +22,7 @@ enum HomeItemType {
   case spaceBetweenStackView
   case centerModalView
   case bottomModalView
+  case periodicTable
 }
 
 struct HomeItem {
@@ -67,6 +68,9 @@ struct HomeItem {
     case .bottomModalView:
       self.name = "Bottom Modal View"
       break
+    case .periodicTable:
+      self.name = "Periodic Table"
+      break
     }
   }
 }
@@ -105,7 +109,8 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       HomeItem(type: .spaceEvenly),
       HomeItem(type: .spaceBetweenStackView),
       HomeItem(type: .centerModalView),
-      HomeItem(type: .bottomModalView)
+      HomeItem(type: .bottomModalView),
+      HomeItem(type: .periodicTable)
     ]
   }
   
@@ -177,6 +182,9 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       let bottomModalView = ModalView(type: .bottom)
       let currentWindow: UIWindow? = UIApplication.shared.keyWindow
       currentWindow?.addSubview(bottomModalView)
+      break
+    case .periodicTable:
+      navigationController?.pushViewController(PeriodicTableVC(), animated: true)
       break
     }
     tableView.deselectRow(at: indexPath, animated: true)
