@@ -155,18 +155,18 @@
 		B2CE74AE22957BEE0085FF2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B229109122A4FDF7009EA374 /* ElementsCollectionView.swift */,
+				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
+				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
 				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
-				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
-				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
-				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
-				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
+				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
 				B229108F22A4F24B009EA374 /* PeriodicTableVC.swift */,
-				B229109122A4FDF7009EA374 /* ElementsCollectionView.swift */,
+				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,13 +174,13 @@
 		B2CE74AF22957BF50085FF2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */,
-				B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */,
-				B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */,
-				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
 				1D17992B2296760F00FC04F3 /* APODApi.swift */,
 				1D17992D229677DF00FC04F3 /* APODPicture.swift */,
+				B2CE74A922957AAD0085FF2E /* AstronomyPictures.xcdatamodeld */,
 				B229108B22A4F0EF009EA374 /* ElementsModel.swift */,
+				B26C4D14229693ED00DB5132 /* Picture+CoreDataClass.swift */,
+				B26C4D15229693ED00DB5132 /* Picture+CoreDataProperties.swift */,
+				B2CE74BD22966D590085FF2E /* PicturesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +300,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
@@ -313,6 +314,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",

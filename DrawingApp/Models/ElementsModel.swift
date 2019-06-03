@@ -196,7 +196,7 @@ private func newJSONEncoder() -> JSONEncoder {
 
 class ElementsModel {
   
-  func getAllElements() -> Array<Element> {
+  static func getAllElements() -> Array<Element> {
     var elementsList: Array<Element> = []
     if let path = Bundle.main.path(forResource: "elements", ofType: "json") {
       do {

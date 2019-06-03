@@ -8,4 +8,5 @@ target 'DrawingApp' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'SDWebImage'
+    pod 'PureLayout'
   end
