@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		1D17992C2296760F00FC04F3 /* APODApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992B2296760F00FC04F3 /* APODApi.swift */; };
 		1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992D229677DF00FC04F3 /* APODPicture.swift */; };
 		1D1799302296886D00FC04F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992F2296886D00FC04F3 /* Result.swift */; };
+		698C6D5922F40D14006106B0 /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5822F40D14006106B0 /* WaitingView.swift */; };
+		698C6D5B22F40D99006106B0 /* WaitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5A22F40D99006106B0 /* WaitingVC.swift */; };
 		B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */; };
 		B20E5971227C3A8F00D53AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E596F227C3A8F00D53AA7 /* Main.storyboard */; };
 		B20E5973227C3A9000D53AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E5972227C3A9000D53AA7 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		1D17992F2296886D00FC04F3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		291572A784B85D5D79DB2C0A /* Pods_DrawingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.release.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.release.xcconfig"; sourceTree = "<group>"; };
+		698C6D5822F40D14006106B0 /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
+		698C6D5A22F40D99006106B0 /* WaitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingVC.swift; sourceTree = "<group>"; };
 		AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.debug.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B20E5968227C3A8F00D53AA7 /* DrawingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
 				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
 				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
+				698C6D5822F40D14006106B0 /* WaitingView.swift */,
+				698C6D5A22F40D99006106B0 /* WaitingVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,30 +289,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -348,11 +335,13 @@
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
 				B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */,
+				698C6D5B22F40D99006106B0 /* WaitingVC.swift in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
 				B25F9357229BA29700DE8092 /* ModalView.swift in Sources */,
 				B28CD9DB228EE54600FBD512 /* ListAnimationsVC.swift in Sources */,
+				698C6D5922F40D14006106B0 /* WaitingView.swift in Sources */,
 				B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */,
 				B25A09B7227D98C200E41356 /* ColorSelectorViewController.swift in Sources */,
 				B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */,

@@ -22,6 +22,7 @@ enum HomeItemType {
   case spaceBetweenStackView
   case centerModalView
   case bottomModalView
+  case waitingView
 }
 
 struct HomeItem {
@@ -66,6 +67,8 @@ struct HomeItem {
       break
     case .bottomModalView:
       self.name = "Bottom Modal View"
+    case .waitingView:
+      self.name = "Waiting View"
       break
     }
   }
@@ -105,7 +108,8 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       HomeItem(type: .spaceEvenly),
       HomeItem(type: .spaceBetweenStackView),
       HomeItem(type: .centerModalView),
-      HomeItem(type: .bottomModalView)
+      HomeItem(type: .bottomModalView),
+      HomeItem(type: .waitingView)
     ]
   }
   
@@ -177,6 +181,9 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       let bottomModalView = ModalView(type: .bottom)
       let currentWindow: UIWindow? = UIApplication.shared.keyWindow
       currentWindow?.addSubview(bottomModalView)
+      break
+    case .waitingView:
+      navigationController?.pushViewController(WaitingVC(), animated: true)
       break
     }
     tableView.deselectRow(at: indexPath, animated: true)
