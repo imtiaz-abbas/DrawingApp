@@ -13,6 +13,8 @@
 		1D1799302296886D00FC04F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D17992F2296886D00FC04F3 /* Result.swift */; };
 		698C6D5922F40D14006106B0 /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5822F40D14006106B0 /* WaitingView.swift */; };
 		698C6D5B22F40D99006106B0 /* WaitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5A22F40D99006106B0 /* WaitingVC.swift */; };
+		698C6D5D22F40EFA006106B0 /* WaitingViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5C22F40EFA006106B0 /* WaitingViewNew.swift */; };
+		698C6D5F22F40F07006106B0 /* WaitingNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698C6D5E22F40F07006106B0 /* WaitingNewVC.swift */; };
 		B20E596C227C3A8F00D53AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */; };
 		B20E5971227C3A8F00D53AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E596F227C3A8F00D53AA7 /* Main.storyboard */; };
 		B20E5973227C3A9000D53AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E5972227C3A9000D53AA7 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		464FD1E8AC14D9575D045D11 /* Pods-DrawingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.release.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.release.xcconfig"; sourceTree = "<group>"; };
 		698C6D5822F40D14006106B0 /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		698C6D5A22F40D99006106B0 /* WaitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingVC.swift; sourceTree = "<group>"; };
+		698C6D5C22F40EFA006106B0 /* WaitingViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewNew.swift; sourceTree = "<group>"; };
+		698C6D5E22F40F07006106B0 /* WaitingNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingNewVC.swift; sourceTree = "<group>"; };
 		AA62787271DBE5C46EBC64C4 /* Pods-DrawingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawingApp.debug.xcconfig"; path = "Target Support Files/Pods-DrawingApp/Pods-DrawingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B20E5968227C3A8F00D53AA7 /* DrawingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20E596B227C3A8F00D53AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
 				698C6D5822F40D14006106B0 /* WaitingView.swift */,
 				698C6D5A22F40D99006106B0 /* WaitingVC.swift */,
+				698C6D5C22F40EFA006106B0 /* WaitingViewNew.swift */,
+				698C6D5E22F40F07006106B0 /* WaitingNewVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
 				B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */,
 				B2CE74AC22957AFD0085FF2E /* AstronomyPictures.xcdatamodeld in Sources */,
+				698C6D5F22F40F07006106B0 /* WaitingNewVC.swift in Sources */,
 				B25F935F229BE1D500DE8092 /* FlexBoxVC.swift in Sources */,
 				698C6D5B22F40D99006106B0 /* WaitingVC.swift in Sources */,
+				698C6D5D22F40EFA006106B0 /* WaitingViewNew.swift in Sources */,
 				1D17992E229677DF00FC04F3 /* APODPicture.swift in Sources */,
 				B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */,
 				B28CD9DD228EEF2800FBD512 /* ListAnimationCollectionView.swift in Sources */,
