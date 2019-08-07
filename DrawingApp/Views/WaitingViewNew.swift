@@ -11,7 +11,6 @@ import UIKit
 import Stevia
 
 class WaitingViewNew: UIView, CAAnimationDelegate {
-  let shapeLayer = CAShapeLayer()
   let shapeLayer2 = CAShapeLayer()
   let shapeLayer3 = CAShapeLayer()
   var timelimit: UInt32 = 5
@@ -25,16 +24,6 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
   }
   
   private func setupView() {
-//    let circularPath = UIBezierPath(arcCenter: CGPoint(x: 21, y: 21), radius: 21, startAngle: 3 * .pi / 2, endAngle: -.pi / 2, clockwise: false)
-//    shapeLayer.path = circularPath.cgPath
-//    shapeLayer.lineCap = CAShapeLayerLineCap.round
-//    shapeLayer.fillColor = UIColor.clear.cgColor
-//    shapeLayer.strokeColor = UIColor.red.cgColor
-//    shapeLayer.lineWidth = 5
-//    shapeLayer.strokeEnd = 1
-//    self.layer.addSublayer(shapeLayer)
-    
-    
     let circularPath2 = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 50, startAngle: -.pi / 2, endAngle: 0, clockwise: true)
     shapeLayer2.path = circularPath2.cgPath
     shapeLayer2.lineCap = CAShapeLayerLineCap.round
@@ -63,14 +52,6 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     }) { (_) in
       
     }
-    
-//    let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-//    basicAnimation.toValue = 0
-//    basicAnimation.duration = CFTimeInterval(timelimit)
-//    basicAnimation.isRemovedOnCompletion = false
-//    basicAnimation.delegate = self
-//    shapeLayer.add(basicAnimation, forKey: "strokeEnd")
-    
     
     let basicAnimation2 = CABasicAnimation(keyPath: "strokeEnd")
     basicAnimation2.toValue = 1
