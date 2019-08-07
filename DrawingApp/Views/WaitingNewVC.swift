@@ -12,7 +12,7 @@ import UIKit
 class WaitingNewVC: UIViewController {
   let waitingView = WaitingViewNew()
   override func viewDidLoad() {
-    self.view.backgroundColor = .white
+    self.view.backgroundColor = .black
     self.view.fillContainer()
     self.view.sv(waitingView)
     waitingView.height(100).width(100).centerHorizontally().centerVertically()

@@ -11,7 +11,6 @@ import UIKit
 import Stevia
 
 class WaitingViewNew: UIView, CAAnimationDelegate {
-  private let timerLabel = UILabel()
   let shapeLayer = CAShapeLayer()
   let shapeLayer2 = CAShapeLayer()
   let shapeLayer3 = CAShapeLayer()
@@ -26,9 +25,6 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
   }
   
   private func setupView() {
-    sv(timerLabel.style(timerLabelStyle))
-    timerLabel.centerVertically()
-    timerLabel.centerHorizontally()
 //    let circularPath = UIBezierPath(arcCenter: CGPoint(x: 21, y: 21), radius: 21, startAngle: 3 * .pi / 2, endAngle: -.pi / 2, clockwise: false)
 //    shapeLayer.path = circularPath.cgPath
 //    shapeLayer.lineCap = CAShapeLayerLineCap.round
@@ -43,9 +39,9 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     shapeLayer2.path = circularPath2.cgPath
     shapeLayer2.lineCap = CAShapeLayerLineCap.round
     shapeLayer2.fillColor = UIColor.clear.cgColor
-    shapeLayer2.strokeColor = UIColor.red.cgColor
+    shapeLayer2.strokeColor = UIColor.white.cgColor
     shapeLayer2.lineWidth = 10
-    shapeLayer2.strokeEnd = 1
+    shapeLayer2.strokeEnd = 0
     self.layer.addSublayer(shapeLayer2)
     
     
@@ -53,9 +49,9 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     shapeLayer3.path = circularPath3.cgPath
     shapeLayer3.lineCap = CAShapeLayerLineCap.round
     shapeLayer3.fillColor = UIColor.clear.cgColor
-    shapeLayer3.strokeColor = UIColor.red.cgColor
+    shapeLayer3.strokeColor = UIColor.white.cgColor
     shapeLayer3.lineWidth = 10
-    shapeLayer3.strokeEnd = 1
+    shapeLayer3.strokeEnd = 0
     self.layer.addSublayer(shapeLayer3)
     
     animateProgress()
@@ -76,24 +72,21 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
 //    shapeLayer.add(basicAnimation, forKey: "strokeEnd")
     
     
-//    let basicAnimation2 = CABasicAnimation(keyPath: "strokeEnd")
-//    basicAnimation2.toValue = 1
-//    basicAnimation2.duration = CFTimeInterval(timelimit)
-//    basicAnimation2.isRemovedOnCompletion = false
-//    basicAnimation2.delegate = self
-//    shapeLayer2.add(basicAnimation2, forKey: "strokeEnd")
+    let basicAnimation2 = CABasicAnimation(keyPath: "strokeEnd")
+    basicAnimation2.toValue = 1
+    basicAnimation2.duration = CFTimeInterval(2.0)
+    basicAnimation2.fillMode = .forwards
+    basicAnimation2.isRemovedOnCompletion = false
+    basicAnimation2.delegate = self
+    shapeLayer2.add(basicAnimation2, forKey: "strokeEnd")
     
     
-//    let basicAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
-//    basicAnimation3.toValue = 1
-//    basicAnimation3.duration = CFTimeInterval(timelimit)
-//    basicAnimation3.isRemovedOnCompletion = false
-//    basicAnimation3.delegate = self
-//    shapeLayer2.add(basicAnimation3, forKey: "strokeEnd")
-  }
-  private func timerLabelStyle(label: UILabel) {
-    label.textColor = .white
-    label.numberOfLines = 1
-    label.textAlignment = .center
+    let basicAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
+    basicAnimation3.toValue = 1
+    basicAnimation3.fillMode = .forwards
+    basicAnimation3.duration = CFTimeInterval(2.0)
+    basicAnimation3.isRemovedOnCompletion = false
+    basicAnimation3.delegate = self
+    shapeLayer3.add(basicAnimation3, forKey: "strokeEnd")
   }
 }
