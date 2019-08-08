@@ -47,7 +47,7 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
   }
   
   func animateProgress() {
-    UIView.animate(withDuration: 2.0, delay: 0.0, options: [.curveLinear, .repeat], animations: {
+    UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveLinear, .repeat], animations: {
       self.transform = CGAffineTransform.init(rotationAngle: .pi)
     }) { (_) in
       
@@ -55,7 +55,7 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     
     let basicAnimation2 = CABasicAnimation(keyPath: "strokeEnd")
     basicAnimation2.toValue = 1
-    basicAnimation2.duration = CFTimeInterval(2.0)
+    basicAnimation2.duration = CFTimeInterval(1.0)
     basicAnimation2.fillMode = .forwards
     basicAnimation2.isRemovedOnCompletion = false
     basicAnimation2.delegate = self
@@ -65,7 +65,7 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     let basicAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
     basicAnimation3.toValue = 1
     basicAnimation3.fillMode = .forwards
-    basicAnimation3.duration = CFTimeInterval(2.0)
+    basicAnimation3.duration = CFTimeInterval(1.0)
     basicAnimation3.isRemovedOnCompletion = false
     basicAnimation3.delegate = self
     shapeLayer3.add(basicAnimation3, forKey: "strokeEnd")
