@@ -34,7 +34,7 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     self.layer.addSublayer(shapeLayer2)
     
     
-    let circularPath3 = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 50, startAngle: .pi / 2, endAngle: .pi, clockwise: true)
+    let circularPath3 = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 50, startAngle:  .pi , endAngle: .pi / 2, clockwise: false)
     shapeLayer3.path = circularPath3.cgPath
     shapeLayer3.lineCap = CAShapeLayerLineCap.round
     shapeLayer3.fillColor = UIColor.clear.cgColor
@@ -61,13 +61,14 @@ class WaitingViewNew: UIView, CAAnimationDelegate {
     basicAnimation2.delegate = self
     shapeLayer2.add(basicAnimation2, forKey: "strokeEnd")
     
-    
-    let basicAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
-    basicAnimation3.toValue = 1
-    basicAnimation3.fillMode = .forwards
-    basicAnimation3.duration = CFTimeInterval(1.0)
-    basicAnimation3.isRemovedOnCompletion = false
-    basicAnimation3.delegate = self
-    shapeLayer3.add(basicAnimation3, forKey: "strokeEnd")
+    Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+      let basicAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
+      basicAnimation3.toValue = 1
+      basicAnimation3.fillMode = .forwards
+      basicAnimation3.duration = CFTimeInterval(1.0)
+      basicAnimation3.isRemovedOnCompletion = false
+      basicAnimation3.delegate = self
+      self.shapeLayer3.add(basicAnimation3, forKey: "strokeEnd")
+    }
   }
 }
