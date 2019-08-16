@@ -105,6 +105,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		69952D4C2306BE2A003E8E21 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
+				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
+				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
+				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
+				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
+				698C6D5A22F40D99006106B0 /* WaitingVC.swift */,
+				698C6D5E22F40F07006106B0 /* WaitingNewVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B19020F338495EE4CB6485D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +148,7 @@
 		B20E596A227C3A8F00D53AA7 /* DrawingApp */ = {
 			isa = PBXGroup;
 			children = (
+				69952D4C2306BE2A003E8E21 /* ViewControllers */,
 				B2CE74B72296464E0085FF2E /* AppDelegate */,
 				B2CE74AF22957BF50085FF2E /* Models */,
 				B2CE74B8229646620085FF2E /* Resources */,
@@ -158,17 +173,10 @@
 				B21593672292D58800C101CB /* ItemCollectionViewCell.swift */,
 				B20E5974227C3A9000D53AA7 /* LaunchScreen.storyboard */,
 				B28CD9DC228EEF2800FBD512 /* ListAnimationCollectionView.swift */,
-				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
-				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
 				B20E596F227C3A8F00D53AA7 /* Main.storyboard */,
-				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
 				B25F9356229BA29700DE8092 /* ModalView.swift */,
-				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
-				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
 				698C6D5822F40D14006106B0 /* WaitingView.swift */,
-				698C6D5A22F40D99006106B0 /* WaitingVC.swift */,
 				698C6D5C22F40EFA006106B0 /* WaitingViewNew.swift */,
-				698C6D5E22F40F07006106B0 /* WaitingNewVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
