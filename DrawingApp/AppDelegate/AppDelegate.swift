@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 import CoreData
 
 @UIApplicationMain
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    GMSServices.provideAPIKey("API_KEY")
+    
     self.window = UIWindow(frame: UIScreen.main.bounds)
     self.navigationController = UINavigationController(rootViewController: HomeScreenVC())
     self.window?.rootViewController = navigationController
