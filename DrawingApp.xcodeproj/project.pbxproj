@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		B2CE74B222957D790085FF2E /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B122957D790085FF2E /* NetworkUtils.swift */; };
 		B2CE74B4229583840085FF2E /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74B3229583840085FF2E /* PicturesViewModel.swift */; };
 		B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CE74BD22966D590085FF2E /* PicturesModel.swift */; };
+		B2CF5848230A88E900475C06 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CF5847230A88E900475C06 /* MapViewController.swift */; };
 		B2D2D0FD2297F45100BFBF05 /* PanGestureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */; };
 		B2D54C79228AD162004E0AB0 /* GameLoopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */; };
 		B2D581752297D45C00C61733 /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D581742297D45C00C61733 /* HomeScreenVC.swift */; };
@@ -79,6 +80,7 @@
 		B2CE74B122957D790085FF2E /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		B2CE74B3229583840085FF2E /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
 		B2CE74BD22966D590085FF2E /* PicturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesModel.swift; sourceTree = "<group>"; };
+		B2CF5847230A88E900475C06 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureVC.swift; sourceTree = "<group>"; };
 		B2D54C78228AD162004E0AB0 /* GameLoopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoopVC.swift; sourceTree = "<group>"; };
 		B2D581742297D45C00C61733 /* HomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				B28CD9DA228EE54600FBD512 /* ListAnimationsVC.swift */,
 				B2D581742297D45C00C61733 /* HomeScreenVC.swift */,
+				B2CF5847230A88E900475C06 /* MapViewController.swift */,
 				B2D2D0FC2297F45100BFBF05 /* PanGestureVC.swift */,
 				B25F935E229BE1D500DE8092 /* FlexBoxVC.swift */,
 				B25F9360229C065F00DE8092 /* StackViewFlexVC.swift */,
@@ -240,6 +243,7 @@
 				B20E5965227C3A8F00D53AA7 /* Frameworks */,
 				B20E5966227C3A8F00D53AA7 /* Resources */,
 				116EAD7D9C0CA66E40C0FD04 /* [CP] Embed Pods Frameworks */,
+				460E5CFE05540E8C43A2DA72 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,15 +307,57 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		460E5CFE05540E8C43A2DA72 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrawingApp/Pods-DrawingApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75616F9279196624BB6B7570 /* [CP] Check Pods Manifest.lock */ = {
@@ -343,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2CF5848230A88E900475C06 /* MapViewController.swift in Sources */,
 				B26C4D17229693ED00DB5132 /* Picture+CoreDataProperties.swift in Sources */,
 				B2D581752297D45C00C61733 /* HomeScreenVC.swift in Sources */,
 				B2CE74BE22966D590085FF2E /* PicturesModel.swift in Sources */,
@@ -522,7 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8R9LM7883;
+				DEVELOPMENT_TEAM = 6SPJ93UWZ2;
 				INFOPLIST_FILE = "$(SRCROOT)/DrawingApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8R9LM7883;
+				DEVELOPMENT_TEAM = 6SPJ93UWZ2;
 				INFOPLIST_FILE = "$(SRCROOT)/DrawingApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

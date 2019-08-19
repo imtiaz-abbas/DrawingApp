@@ -8,4 +8,6 @@ target 'DrawingApp' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'SDWebImage'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
   end
